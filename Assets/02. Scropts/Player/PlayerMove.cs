@@ -1,10 +1,19 @@
+using System;
 using UnityEngine;
 // 키보드 입력에 따라서 플레이어 이동을 처리하는 스크립트
 public class PlayerMove : MonoBehaviour
 {
     // 필요 필드 
     public float Speed;
-    
+
+    private void Start()
+    {
+        Vector3 pos = transform.position;
+        pos.x = 0;
+        pos.y = -4;
+        transform.position = pos;
+    }
+
     // 매 프레임마다 실행된다
     // 별다른 설정이 없을 경우 가능한 많이 프레임이 생성된다.
     private void Update()
@@ -15,20 +24,29 @@ public class PlayerMove : MonoBehaviour
         //Debug.Log($"h:{h}, v:{v}");
         
         Vector2 direction = new Vector2(h, v);
-        Vector2 normalizedSpeed = (direction * Speed).normalized;
-        transform.position += (Vector3)normalizedSpeed * Time.deltaTime;
+        Vector2 normalizedSpeed = direction.normalized;
+        transform.position += (Vector3)normalizedSpeed * Speed * Time.deltaTime;
 
         Vector3 pos = transform.position;
         if (pos.y < -4.7f)
         {
             pos.y = -4.7f;
-            
         }
         if (pos.y > -2f)
         {
             pos.y = -2f;
         }
+        if (pos.x < -3f)
+        {
+            pos.x = 2.9f;
+        }
+        if (pos.x > 3f)
+        {
+            pos.x = -3f;
+        }
         transform.position = pos;
+        
+        
         /*
         // 1. 키보드 입력을 받는다.
         if(Input.GetKey(KeyCode.LeftArrow))
