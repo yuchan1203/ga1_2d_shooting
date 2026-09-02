@@ -9,11 +9,26 @@ public class PlayerMove : MonoBehaviour
     // 별다른 설정이 없을 경우 가능한 많이 프레임이 생성된다.
     private void Update()
     {
-        float h = Input.GetAxis("Horizontal"); // 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 1f
-        float v = Input.GetAxis("Vertical"); // 키보드 위/아래 입력 상태에 따라 -1f ~ 0 1f
-        Debug.Log($"h:{h}, v:{v}");
+        float h = Input.GetAxisRaw("Horizontal"); // 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 1f
+        float v = Input.GetAxisRaw("Vertical"); // 키보드 위/아래 입력 상태에 따라 -1f ~ 0 1f
+        
+        //Debug.Log($"h:{h}, v:{v}");
+        
         Vector2 direction = new Vector2(h, v);
-        transform.position = transform.position + (Vector3)direction * Speed * Time.deltaTime;
+        Vector2 normalizedSpeed = (direction * Speed).normalized;
+        transform.position += (Vector3)normalizedSpeed * Time.deltaTime;
+
+        Vector3 pos = transform.position;
+        if (pos.y < -4.7f)
+        {
+            pos.y = -4.7f;
+            
+        }
+        if (pos.y > -2f)
+        {
+            pos.y = -2f;
+        }
+        transform.position = pos;
         /*
         // 1. 키보드 입력을 받는다.
         if(Input.GetKey(KeyCode.LeftArrow))
