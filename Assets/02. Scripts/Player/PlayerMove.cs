@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 // 키보드 입력에 따라서 플레이어 이동을 처리하는 스크립트
+
 public class PlayerMove : MonoBehaviour
 {
     // 필요 필드 
     public float Speed;
-
+    private bool isRecording = true;
+    private bool isReplaying = false;
+    
     private void Start()
     {
         Vector3 pos = transform.position;
@@ -17,6 +20,26 @@ public class PlayerMove : MonoBehaviour
     // 매 프레임마다 실행된다
     // 별다른 설정이 없을 경우 가능한 많이 프레임이 생성된다.
     private void Update()
+    {
+        Move();
+        SpeedControll();
+    }
+
+    private void SpeedControll()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Speed += 5;
+            Debug.Log("Speed: " + Speed);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Speed -= 5;
+            Debug.Log("Speed: " + Speed);
+        }
+    }
+
+    private void Move()
     {
         float h = Input.GetAxisRaw("Horizontal"); // 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 1f
         float v = Input.GetAxisRaw("Vertical"); // 키보드 위/아래 입력 상태에 따라 -1f ~ 0 1f
@@ -45,16 +68,7 @@ public class PlayerMove : MonoBehaviour
             pos.x = -3f;
         }
         transform.position = pos;
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Speed += 5;
-            Debug.Log("Speed: " + Speed);
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Speed -= 5;
-            Debug.Log("Speed: " + Speed);
-        }
+        
         /*
         // 1. 키보드 입력을 받는다.
         if(Input.GetKey(KeyCode.LeftArrow))
@@ -78,6 +92,5 @@ public class PlayerMove : MonoBehaviour
             transform.Translate(direction2 * Speed * Time.deltaTime);
         }
         */
-
     }
 }
