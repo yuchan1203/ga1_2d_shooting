@@ -45,8 +45,16 @@ public class PlayerMove : MonoBehaviour
             pos.x = -3f;
         }
         transform.position = pos;
-        
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Speed += 5;
+            Debug.Log("Speed: " + Speed);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Speed -= 5;
+            Debug.Log("Speed: " + Speed);
+        }
         /*
         // 1. 키보드 입력을 받는다.
         if(Input.GetKey(KeyCode.LeftArrow))
