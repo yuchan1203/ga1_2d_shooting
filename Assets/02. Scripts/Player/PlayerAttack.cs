@@ -3,16 +3,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject BulletPrefab;
-    public Transform FirePoint;
+    public GameObject ExtraBulletPrefab;
+    public Transform FirePointLeft;
+    public Transform FirePointRight;
+    public Transform ExtraFirePointLeft;
+    public Transform ExtraFirePointRight;
     public float CoolDownTime;
     private float CoolDown = 0;
     private bool isAutoMode = false;
-    
-    private void Start()
-    {
-        Vector3 pos = FirePoint.position;
-        transform.position = pos;
-    }
 
     private void CoolDownTimer()
     {
@@ -21,6 +19,15 @@ public class PlayerAttack : MonoBehaviour
             CoolDown -= Time.deltaTime;
         }
     }
+
+    private void Fire()
+    {
+        Instantiate(BulletPrefab, FirePointLeft.position, FirePointLeft.rotation);
+        Instantiate(BulletPrefab, FirePointRight.position, FirePointRight.rotation);
+        Instantiate(ExtraBulletPrefab, ExtraFirePointLeft.position, ExtraFirePointLeft.rotation);
+        Instantiate(ExtraBulletPrefab, ExtraFirePointRight.position, ExtraFirePointRight.rotation);
+        CoolDown = CoolDownTime;
+    }
     
     private void PlayerAttacking()
     {
@@ -28,13 +35,11 @@ public class PlayerAttack : MonoBehaviour
         {
             if (isAutoMode)
             {
-                Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-                CoolDown = CoolDownTime;
+                Fire();
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-                CoolDown = CoolDownTime;
+                Fire();
             }
         }
     }
