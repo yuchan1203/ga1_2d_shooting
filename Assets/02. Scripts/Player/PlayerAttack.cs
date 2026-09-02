@@ -4,6 +4,8 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject BulletPrefab;
     public Transform FirePoint;
+    public float CoolDownTime;
+    private float CoolDown = 0;
     
     private void Start()
     {
@@ -13,9 +15,14 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (CoolDown > 0)
+        {
+            CoolDown -= Time.deltaTime;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+            CoolDown = CoolDownTime;
         }
     }
 }
