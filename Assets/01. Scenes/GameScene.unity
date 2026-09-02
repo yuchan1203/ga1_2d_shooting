@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   BulletPrefab: {fileID: 2248744005796631978, guid: 7a757895f0b5481448c77eb766dfaeee, type: 3}
   FirePoint: {fileID: 1571312722}
-  CoolDownTime: 1
+  CoolDownTime: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

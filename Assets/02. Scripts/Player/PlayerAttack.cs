@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     public Transform FirePoint;
     public float CoolDownTime;
     private float CoolDown = 0;
+    private bool isAutoMode = false;
     
     private void Start()
     {
@@ -13,16 +14,44 @@ public class PlayerAttack : MonoBehaviour
         transform.position = pos;
     }
 
-    private void Update()
+    private void CoolDownTimer()
     {
         if (CoolDown > 0)
         {
             CoolDown -= Time.deltaTime;
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+    }
+    
+    private void PlayerAttacking()
+    {
+        if (CoolDown <= 0)
         {
-            Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-            CoolDown = CoolDownTime;
+            if (isAutoMode)
+            {
+                Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+                CoolDown = CoolDownTime;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+                CoolDown = CoolDownTime;
+            }
         }
     }
+
+    private void Check1Num()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            isAutoMode = !isAutoMode;
+        }
+    }
+    
+    private void Update()
+    {
+        CoolDownTimer();
+        PlayerAttacking();
+        Check1Num();
+    }
+    
 }

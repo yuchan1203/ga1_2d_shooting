@@ -34,13 +34,13 @@ public class PlayerMove : MonoBehaviour
         {
             pos.y = -2f;
         }
-        if (pos.x < -3f)
+        if (pos.x < -3.5f)
         {
-            pos.x = 2.9f;
+            pos.x = 3.4f;
         }
-        if (pos.x > 3f)
+        if (pos.x > 3.5f)
         {
-            pos.x = -3f;
+            pos.x = -3.4f;
         }
         transform.position = pos;
     }
