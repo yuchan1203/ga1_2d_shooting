@@ -1,4 +1,5 @@
 using UnityEngine;
+
 // 스페이스바를 누를 때마다 총알을 생성해서 발사시키는 스크립트 
 public class PlayerAttack : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(ExtraBulletPrefab, ExtraFirePointRight.position, ExtraFirePointRight.rotation);
         CoolDown = CoolDownTime;
     }
-    
+
     private void PlayerAttacking()
     {
         if (CoolDown <= 0)
@@ -51,12 +52,11 @@ public class PlayerAttack : MonoBehaviour
             isAutoMode = !isAutoMode;
         }
     }
-    
+
     private void Update()
     {
         CoolDownTimer();
         PlayerAttacking();
         Check1Num();
     }
-    
 }
