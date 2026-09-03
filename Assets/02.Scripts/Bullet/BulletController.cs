@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
     public float DestroyTime;
 
     Vector2 direction = Vector2.up;
-    
+
     private void Start()
     {
         Destroy(gameObject, DestroyTime);
