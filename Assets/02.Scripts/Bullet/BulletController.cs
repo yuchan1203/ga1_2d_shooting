@@ -5,7 +5,7 @@ public class BulletController : MonoBehaviour
     public float BulletSpeed;
     public float DestroyTime;
 
-    Vector2 direction = Vector2.up;
+    private Vector2 direction = Vector2.up;
 
     private void Start()
     {

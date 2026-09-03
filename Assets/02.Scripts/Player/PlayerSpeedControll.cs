@@ -5,8 +5,6 @@ public class PlayerSpeedControll : MonoBehaviour
 {
     public float PlayerSpeed { get; private set; } = 5f;
 
-    private bool _Test = false;
-
     private void Update()
     {
         SpeedControll();
@@ -14,15 +12,9 @@ public class PlayerSpeedControll : MonoBehaviour
 
     private void SpeedControll()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ChangeSpeed(1);
-        }
+        if (Input.GetKeyDown(KeyCode.E)) ChangeSpeed(1);
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ChangeSpeed(-1);
-        }
+        if (Input.GetKeyDown(KeyCode.Q)) ChangeSpeed(-1);
     }
 
     public void ChangeSpeed(float changeSpeed)

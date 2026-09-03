@@ -15,10 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void CoolDownTimer()
     {
-        if (CoolDown > 0)
-        {
-            CoolDown -= Time.deltaTime;
-        }
+        if (CoolDown > 0) CoolDown -= Time.deltaTime;
     }
 
     private void Fire()
@@ -35,22 +32,14 @@ public class PlayerAttack : MonoBehaviour
         if (CoolDown <= 0)
         {
             if (isAutoMode)
-            {
                 Fire();
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Fire();
-            }
+            else if (Input.GetKeyDown(KeyCode.Space)) Fire();
         }
     }
 
     private void Check1Num()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            isAutoMode = !isAutoMode;
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) isAutoMode = !isAutoMode;
     }
 
     private void Update()
