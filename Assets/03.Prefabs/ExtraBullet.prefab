@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6082051485872549374}
   - component: {fileID: 4519885270327770188}
   - component: {fileID: -6156498458085591679}
+  - component: {fileID: 5687706203708153396}
   m_Layer: 11
   m_Name: ExtraBullet
   m_TagString: Untagged
@@ -107,7 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletController
   BulletSpeed: 15
-  DestroyTime: 3
 --- !u!70 &4519885270327770188
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +172,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5687706203708153396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2248744005796631978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ec957d614b0e4caa1afc0f7fa4c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletMain
+  DestroyTime: 3
+  BulletDamage: 5
