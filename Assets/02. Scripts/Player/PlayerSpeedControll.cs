@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerSpeedControll : MonoBehaviour
 {
     public float PlayerSpeed { get; private set; } = 5f;
+
+    private bool _Teat = false;
     
     private void Update()
     {
