@@ -16,4 +16,18 @@ public class BulletMove : MonoBehaviour
     {
         transform.Translate(direction * BulletSpeed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyMain enemy = collision.gameObject.GetComponent<EnemyMain>();
+            enemy.EnemyHealth -= 40;
+            if (enemy.EnemyHealth <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+    }
 }
