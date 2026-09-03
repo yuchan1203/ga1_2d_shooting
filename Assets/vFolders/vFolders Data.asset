@@ -13,6 +13,52 @@ MonoBehaviour:
   m_Name: vFolders Data
   m_EditorClassIdentifier: VFolders::VFolders.VFoldersData
   folderDatas_byGuid:
-    keys: []
-    values: []
-  bookmarks: []
+    keys:
+    - 109e9bdd0fcc649c5bc59085c35bdc83
+    - 37911d29722b4c1488ff447c46cf0971
+    - 047edbc9fa6331c44ad2c0abd3c8c3b8
+    - d0c22d6d2d17b1a4d90bf87d7d1b483f
+    - 0ce0dde7936f80b43a7110af42e1cdc3
+    - 650c5b50d0eb73e4a8f95411f2348b73
+    - de0406d7cc58bcb49b635481c4ad8e55
+    - 109ccfb08b9fd4bf5a9d8deee2ace2ed
+    - 0220aab0833d04faeb927d84ca6cc40c
+    values:
+    - iconNameOrGuid: 
+      colorIndex: 8
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 4
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 4
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 4
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 4
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 4
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 6
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 1
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: 
+      colorIndex: 1
+      isIconRecursive: 0
+      isColorRecursive: 1
+  bookmarks:
+  - guid: de0406d7cc58bcb49b635481c4ad8e55

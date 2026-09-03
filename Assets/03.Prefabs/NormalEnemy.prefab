@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 860513628508749885}
   - component: {fileID: 974215607966797886}
   m_Layer: 12
-  m_Name: Enemy
+  m_Name: NormalEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,4 +192,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df126da8543b5e34f93b4343f9fd7be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMain
-  EnemyHealth: 100
+  EnemyHealth: 200
+  Type: 0
