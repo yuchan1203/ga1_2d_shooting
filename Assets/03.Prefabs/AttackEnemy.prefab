@@ -193,4 +193,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMain
   EnemyHealth: 100
-  Type: 2

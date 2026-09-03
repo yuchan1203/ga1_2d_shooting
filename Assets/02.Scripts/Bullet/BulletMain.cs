@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class BulletMain : MonoBehaviour
 {
-    public float DestroyTime;
-    public int BulletDamage;
+    [SerializeField] private float _destroyTime;
+    [SerializeField] private int _bulletDamage;
 
     private void Start()
     {
-        Destroy(gameObject, DestroyTime);
-    }
-
-    private void Update()
-    {
+        Destroy(gameObject, _destroyTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,12 +16,7 @@ public class BulletMain : MonoBehaviour
         {
             Destroy(this.gameObject);
             EnemyMain enemy = collision.gameObject.GetComponent<EnemyMain>();
-            enemy.EnemyHealth -= BulletDamage;
-            Debug.Log($"Enemy HP:{enemy.EnemyHealth}");
-            if (enemy.EnemyHealth <= 0)
-            {
-                Destroy(collision.gameObject);
-            }
+            enemy.TakeDamage(_bulletDamage);
         }
     }
 }
