@@ -20,3 +20,4 @@
 #echo 'Husky.Net is awesome!'
 
 dotnet format ga1_2d_shooting.sln --varify-no-changes --include Assets/02.Scripts/
+
