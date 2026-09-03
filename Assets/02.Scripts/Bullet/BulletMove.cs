@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletMove : MonoBehaviour
 {
     public float BulletSpeed;
     public float DestroyTime;
