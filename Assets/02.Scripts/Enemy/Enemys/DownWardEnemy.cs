@@ -1,13 +1,7 @@
 using UnityEngine;
 
-public class DownWardEnemy : EnemyMain
+public class DownWardEnemy : Enemy
 {
-    protected override void Move()
-    {
-        transform.Translate(direction * 1f * Time.deltaTime);
-    }
-
-
     private void Start()
     {
     }

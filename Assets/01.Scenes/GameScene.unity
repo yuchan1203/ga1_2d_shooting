@@ -462,10 +462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea641eeaddcaadc479c31067af8ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  NormalEnemyPrefab: {fileID: 1435559248752617548, guid: 04d1292f1055a0b489e396c38e646ef8, type: 3}
-  AheadEnemyPrefab: {fileID: 1435559248752617548, guid: 8f58f7d55cd4ecf4ea61ca8307861e28, type: 3}
-  AttackEnemyPrefab: {fileID: 1435559248752617548, guid: 56c409f805439ee4d848c0a3023a4ffe, type: 3}
-  RespawnTime: 5
+  EnemyPrefabs:
+  - {fileID: 974215607966797886, guid: 04d1292f1055a0b489e396c38e646ef8, type: 3}
+  - {fileID: 974215607966797886, guid: 8f58f7d55cd4ecf4ea61ca8307861e28, type: 3}
+  - {fileID: 974215607966797886, guid: 56c409f805439ee4d848c0a3023a4ffe, type: 3}
+  _respawnTime: 5
 --- !u!4 &851280527
 Transform:
   m_ObjectHideFlags: 0
