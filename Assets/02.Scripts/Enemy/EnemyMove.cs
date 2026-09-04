@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public abstract class EnemyMove : MonoBehaviour
 {
     private Vector2 direction = Vector2.down;
     private EnemyMain _enemyMain;
@@ -19,6 +19,8 @@ public class EnemyMove : MonoBehaviour
         {
         }
     }
+
+    protected abstract void Move();
 
     private void Update()
     {
