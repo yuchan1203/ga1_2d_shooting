@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private void Start()
-    {
-    }
+    [SerializeField] private int health;
 
-    private void Update()
+    public void TakeDamage(int damage)
     {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

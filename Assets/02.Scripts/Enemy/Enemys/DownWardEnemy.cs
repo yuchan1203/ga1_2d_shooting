@@ -1,12 +1,12 @@
 using UnityEngine;
 
+// 아래쪽으로 이동하는 적 스크립트 
+
 public class DownWardEnemy : Enemy
 {
-    private void Start()
+    protected override void Move()
     {
-    }
-
-    private void Update()
-    {
+        Vector2 direction = Vector2.down;
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
 }

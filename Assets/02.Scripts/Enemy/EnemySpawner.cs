@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // 스폰할 적 프리팹 리스트 
-    [SerializeField] private Enemy[] EnemyPrefabs;
+    [SerializeField] private EnemySpawnTableSO spawnTable;
 
     // 시간
-    [SerializeField] private float _respawnTime = 5f;
-    private float _respawnTimer = 0f;
+    [SerializeField] private float respawnTime = 5f;
 
-    private float randomX;
-    private int randomEnemy;
+    private float _respawnTimer = 0f;
+    private float _randomX;
+    private int _randomEnemy;
     private Vector2 _vector2;
 
     private void CoolDownTimer()
@@ -20,33 +19,23 @@ public class EnemySpawner : MonoBehaviour
         if (_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
     }
 
-    private void EnemySpawn()
+    private void Spawn()
     {
-        if (_respawnTimer <= 0)
+        GameObject selectedPrefab = spawnTable.GetRandomEnemyPrefab();
+        if (selectedPrefab != null)
         {
-            randomX = Random.Range(-2.0f, 2.0f);
-            _vector2 = new Vector2(randomX, 5);
-            randomEnemy = Random.Range(1, 4);
-            if (randomEnemy == 1)
-            {
-                Instantiate(EnemyPrefabs[0], _vector2, Quaternion.identity);
-            }
-            else if (randomEnemy == 2)
-            {
-                Instantiate(EnemyPrefabs[1], _vector2, Quaternion.identity);
-            }
-            else if (randomEnemy == 3)
-            {
-                Instantiate(EnemyPrefabs[2], _vector2, Quaternion.identity);
-            }
-
-            _respawnTimer = _respawnTime;
+            Instantiate(selectedPrefab, transform.position, Quaternion.identity);
         }
+
+        _respawnTimer = respawnTime;
     }
 
     private void Update()
     {
         CoolDownTimer();
-        EnemySpawn();
+        if (_respawnTimer <= 0)
+        {
+            Spawn();
+        }
     }
 }

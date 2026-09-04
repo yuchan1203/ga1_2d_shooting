@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8125838115527041958}
   - component: {fileID: 6396043248231953262}
-  - component: {fileID: 306595459330924879}
   - component: {fileID: 7012248138401062912}
   - component: {fileID: 860513628508749885}
-  - component: {fileID: 974215607966797886}
+  - component: {fileID: 1548351621064857965}
   m_Layer: 12
   m_Name: NormalEnemy
   m_TagString: Enemy
@@ -95,18 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &306595459330924879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435559248752617548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e803158ab83c8846ab8522a6255ab83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
 --- !u!61 &7012248138401062912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &974215607966797886
+--- !u!114 &1548351621064857965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,8 +176,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1435559248752617548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df126da8543b5e34f93b4343f9fd7be3, type: 3}
+  m_Script: {fileID: 11500000, guid: 771c49e8fe497a74e965702d063d6d63, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMain
-  EnemyHealth: 200
-  Type: 0
+  m_EditorClassIdentifier: Assembly-CSharp::DownWardEnemy
+  health: 50
+  moveSpeed: 6
+  damage: 10

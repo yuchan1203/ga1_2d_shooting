@@ -462,11 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea641eeaddcaadc479c31067af8ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  EnemyPrefabs:
-  - {fileID: 974215607966797886, guid: 04d1292f1055a0b489e396c38e646ef8, type: 3}
-  - {fileID: 974215607966797886, guid: 8f58f7d55cd4ecf4ea61ca8307861e28, type: 3}
-  - {fileID: 974215607966797886, guid: 56c409f805439ee4d848c0a3023a4ffe, type: 3}
-  _respawnTime: 5
+  spawnTable: {fileID: 11400000, guid: 7b83b32cd7f3ea445aa3b63dfcfde4a1, type: 2}
+  respawnTime: 3
 --- !u!4 &851280527
 Transform:
   m_ObjectHideFlags: 0
@@ -476,7 +473,7 @@ Transform:
   m_GameObject: {fileID: 851280525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,11 +520,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1571312722}
   - component: {fileID: 1571312721}
+  - component: {fileID: 1571312727}
+  - component: {fileID: 1571312726}
   - component: {fileID: 1571312723}
   - component: {fileID: 1571312724}
   - component: {fileID: 1571312725}
-  - component: {fileID: 1571312727}
-  - component: {fileID: 1571312726}
+  - component: {fileID: 1571312728}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -603,7 +601,7 @@ Transform:
   m_GameObject: {fileID: 1571312720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46, y: -4.06, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -733,6 +731,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1571312728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571312720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488e8161d4ab56a428c00ef956ccd84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  health: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
