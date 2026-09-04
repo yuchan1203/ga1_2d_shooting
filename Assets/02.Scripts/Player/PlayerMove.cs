@@ -2,9 +2,10 @@ using System;
 using UnityEngine;
 
 // 키보드 입력에 따라서 플레이어 이동을 처리하는 스크립트
+
 public class PlayerMove : MonoBehaviour
 {
-    private PlayerSpeedControll playerSpeedControll;
+    private PlayerSpeedControll _playerSpeedControll;
 
     private void Start()
     {
@@ -12,7 +13,7 @@ public class PlayerMove : MonoBehaviour
         pos.x = 0;
         pos.y = -4;
         transform.position = pos;
-        playerSpeedControll = GetComponent<PlayerSpeedControll>();
+        _playerSpeedControll = GetComponent<PlayerSpeedControll>();
     }
 
     private void Update()
@@ -25,7 +26,7 @@ public class PlayerMove : MonoBehaviour
         var h = Input.GetAxisRaw("Horizontal");
         var v = Input.GetAxisRaw("Vertical");
         var direction = new Vector2(h, v).normalized;
-        transform.position += (Vector3)direction * playerSpeedControll.PlayerSpeed * Time.deltaTime;
+        transform.position += (Vector3)direction * _playerSpeedControll.PlayerSpeed * Time.deltaTime;
         var pos = transform.position;
         if (pos.y < -4.7f) pos.y = -4.7f;
         if (pos.y > -2f) pos.y = -2f;

@@ -1,12 +1,11 @@
 using UnityEngine;
 
+// 규칙에 따라 적을 소환하는 스크립트 
+
 public class EnemySpawner : MonoBehaviour
 {
-    // 스폰할 적 프리팹
-    [SerializeField] private EnemyMain _normalEnemyPrefab;
-    [SerializeField] private EnemyMain _aheadEnemyPrefab;
-
-    [SerializeField] private EnemyMain _attackEnemyPrefab;
+    // 스폰할 적 프리팹 리스트 
+    [SerializeField] private Enemy[] EnemyPrefabs;
 
     // 시간
     [SerializeField] private float _respawnTime = 5f;
@@ -30,15 +29,15 @@ public class EnemySpawner : MonoBehaviour
             randomEnemy = Random.Range(1, 4);
             if (randomEnemy == 1)
             {
-                Instantiate(_normalEnemyPrefab, _vector2, Quaternion.identity);
+                Instantiate(EnemyPrefabs[0], _vector2, Quaternion.identity);
             }
             else if (randomEnemy == 2)
             {
-                Instantiate(_aheadEnemyPrefab, _vector2, Quaternion.identity);
+                Instantiate(EnemyPrefabs[1], _vector2, Quaternion.identity);
             }
             else if (randomEnemy == 3)
             {
-                Instantiate(_attackEnemyPrefab, _vector2, Quaternion.identity);
+                Instantiate(EnemyPrefabs[2], _vector2, Quaternion.identity);
             }
 
             _respawnTimer = _respawnTime;
