@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private EnemySpawnTableSO spawnTable;
-    [SerializeField] private float respawnTime;
-    [SerializeField] private float maxPositionX;
+    [SerializeField] private float respawnTime = 5.0f;
+    [SerializeField] private float maxPositionX = 3.0f;
 
     private float _respawnTimer = 0f;
     private float _randomX;
