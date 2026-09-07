@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6396043248231953262}
   - component: {fileID: 7012248138401062912}
   - component: {fileID: 860513628508749885}
-  - component: {fileID: 2215967076059454191}
+  - component: {fileID: 1548351621064857965}
   m_Layer: 12
-  m_Name: AttackEnemy
+  m_Name: NormalEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.49411765, g: 0, b: 0.25414845, a: 1}
+  m_Color: {r: 0.09082943, g: 0.495283, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2215967076059454191
+--- !u!114 &1548351621064857965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,9 +176,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1435559248752617548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945270e87b8e6bc458831271b9dc8f8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 771c49e8fe497a74e965702d063d6d63, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::DownWardEnemy
   health: 50
-  moveSpeed: 2
-  damage: 20
+  moveSpeed: 3
+  damage: 10

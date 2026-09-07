@@ -10,13 +10,13 @@ public class PlayerAttack : MonoBehaviour
     public Transform FirePointRight;
     public Transform ExtraFirePointLeft;
     public Transform ExtraFirePointRight;
-    public float CoolDownTime;
-    private float CoolDown = 0;
-    private bool isAutoMode = false;
+    public float CoolDownTime { get; private set; } = 0.5f;
+    private float _coolDown = 0;
+    private bool _isAutoMode = false;
 
     private void CoolDownTimer()
     {
-        if (CoolDown > 0) CoolDown -= Time.deltaTime;
+        if (_coolDown > 0) _coolDown -= Time.deltaTime;
     }
 
     private void Fire()
@@ -25,14 +25,14 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(BulletPrefab, FirePointRight.position, FirePointRight.rotation);
         Instantiate(ExtraBulletPrefab, ExtraFirePointLeft.position, ExtraFirePointLeft.rotation);
         Instantiate(ExtraBulletPrefab, ExtraFirePointRight.position, ExtraFirePointRight.rotation);
-        CoolDown = CoolDownTime;
+        _coolDown = CoolDownTime;
     }
 
     private void PlayerAttacking()
     {
-        if (CoolDown <= 0)
+        if (_coolDown <= 0)
         {
-            if (isAutoMode)
+            if (_isAutoMode)
                 Fire();
             else if (Input.GetKeyDown(KeyCode.Space)) Fire();
         }
@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Check1Num()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) isAutoMode = !isAutoMode;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) _isAutoMode = !_isAutoMode;
     }
 
     private void Update()
@@ -48,5 +48,14 @@ public class PlayerAttack : MonoBehaviour
         CoolDownTimer();
         PlayerAttacking();
         Check1Num();
+    }
+
+    public void ChangeCoolDown(float coolDown)
+    {
+        CoolDownTime += coolDown;
+        if (CoolDownTime <= 0)
+        {
+            CoolDownTime = 0;
+        }
     }
 }

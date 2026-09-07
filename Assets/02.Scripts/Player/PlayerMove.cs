@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private PlayerSpeedControll _playerSpeedControll;
+    private PlayerSpeedControl _playerSpeedControll;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
         pos.x = 0;
         pos.y = -4;
         transform.position = pos;
-        _playerSpeedControll = GetComponent<PlayerSpeedControll>();
+        _playerSpeedControll = GetComponent<PlayerSpeedControl>();
     }
 
     private void Update()

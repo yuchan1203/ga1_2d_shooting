@@ -1,15 +1,16 @@
+using System;
 using UnityEngine;
 
 // 플레이어 스크립트 
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int health;
+    public int Health;
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        Health -= damage;
+        if (Health <= 0)
         {
             Destroy(this.gameObject);
         }
