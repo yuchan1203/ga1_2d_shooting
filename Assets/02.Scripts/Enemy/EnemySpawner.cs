@@ -24,7 +24,9 @@ public class EnemySpawner : MonoBehaviour
         GameObject selectedPrefab = spawnTable.GetRandomEnemyPrefab();
         if (selectedPrefab != null)
         {
-            Instantiate(selectedPrefab, transform.position, Quaternion.identity);
+            float randomX = Random.Range(-3.0f, 3.0f);
+            Vector2 spawnPosition = new Vector2(randomX, transform.position.y);
+            Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
         }
 
         _respawnTimer = respawnTime;

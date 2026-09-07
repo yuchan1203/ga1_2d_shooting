@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
 // 플레이어 스크립트 
 
 public class Player : MonoBehaviour
 {
-    public int Health;
+    public int Health { get; private set; } = 50;
 
     public void TakeDamage(int damage)
     {

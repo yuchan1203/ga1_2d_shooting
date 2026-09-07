@@ -8,10 +8,10 @@ public class PlayerSpeedControl : MonoBehaviour
 
     private void Update()
     {
-        SpeedControll();
+        SpeedControl();
     }
 
-    private void SpeedControll()
+    private void SpeedControl()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {

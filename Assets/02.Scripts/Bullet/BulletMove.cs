@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    public float BulletSpeed;
-
-    private Vector2 direction = Vector2.up;
+    [SerializeField] private float bulletSpeed;
 
     private void Update()
     {
-        transform.Translate(direction * BulletSpeed * Time.deltaTime);
+        transform.Translate(Vector2.up * (bulletSpeed * Time.deltaTime));
     }
 }

@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f466cc522299a409615acd646abaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletController
-  BulletSpeed: 10
+  bulletSpeed: 10
 --- !u!50 &-6416138919958338336
 Rigidbody2D:
   serializedVersion: 5
