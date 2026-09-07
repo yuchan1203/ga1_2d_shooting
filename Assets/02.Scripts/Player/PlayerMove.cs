@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private PlayerSpeedControl _playerSpeedControl;
-    [SerializeField] private float maxPositionX;
-    [SerializeField] private float minPositionX;
+    [SerializeField] private float wrapBoundaryX;
     [SerializeField] private float maxPositionY;
     [SerializeField] private float minPositionY;
 
@@ -33,8 +32,8 @@ public class PlayerMove : MonoBehaviour
         var pos = transform.position;
         if (pos.y < minPositionY) pos.y = minPositionY;
         if (pos.y > maxPositionY) pos.y = maxPositionY;
-        if (pos.x < minPositionX) pos.x = maxPositionX;
-        if (pos.x > maxPositionX) pos.x = minPositionX;
+        if (pos.x < wrapBoundaryX * -1) pos.x = wrapBoundaryX;
+        if (pos.x > wrapBoundaryX) pos.x = wrapBoundaryX * -1;
         transform.position = pos;
     }
 }

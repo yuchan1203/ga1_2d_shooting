@@ -915,6 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   spawnTable: {fileID: 11400000, guid: 7b83b32cd7f3ea445aa3b63dfcfde4a1, type: 2}
   respawnTime: 3
+  maxPositionX: 0
 --- !u!4 &851280527
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,8 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4bbc4ac0eb51f488be3f67638b37ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  maxPositionX: 2
-  minPositionX: -2
+  wrapBoundaryX: 2
   maxPositionY: -2
   minPositionY: -4.7
 --- !u!114 &1571312724
