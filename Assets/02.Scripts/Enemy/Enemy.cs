@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected int _damage;
     private Animator _animator;
+    [SerializeField] private GameObject _deathEffectPrefab;
     // todo: 적 피격 시 에니메이션 추가하기 
     // todo: 적 사망 시 에니메이션 추가하기
     // todo: 적이 플레이어에게 닿으면 공격력만큼 체력 줄이라고 하게 만들기 
@@ -25,6 +26,7 @@ public abstract class Enemy : MonoBehaviour
         {
             // todo: 싱글톤 객체에 의존하고 있는 문제를 수정해 결합도 낮추기 
             ItemSpawner.Instance.SpawnItem(transform.position);
+            Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -41,7 +43,7 @@ public abstract class Enemy : MonoBehaviour
         {
             player.TakeDamage(_damage);
         }
-
+        // todo: 플레이어에게 닿았을 때 사라지지 않는 오류 해결하기 
         Destroy(this.gameObject);
     }
 
