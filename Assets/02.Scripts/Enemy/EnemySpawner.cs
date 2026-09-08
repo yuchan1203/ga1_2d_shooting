@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemySpawnTableSO spawnTable;
-    [SerializeField] private float respawnTime = 5.0f;
-    [SerializeField] private float maxPositionX = 3.0f;
+    [SerializeField] private EnemySpawnTableSO _spawnTable;
+    [SerializeField] private float _respawnTime = 5.0f;
+    [SerializeField] private float _maxPositionX = 3.0f;
 
     private float _respawnTimer = 0f;
     private float _randomX;
@@ -20,15 +20,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject selectedPrefab = spawnTable.GetRandomEnemyPrefab();
+        GameObject selectedPrefab = _spawnTable.GetRandomEnemyPrefab();
         if (selectedPrefab != null)
         {
-            float randomX = Random.Range(maxPositionX * -1, maxPositionX);
+            float randomX = Random.Range(_maxPositionX * -1, _maxPositionX);
             Vector2 spawnPosition = new Vector2(randomX, transform.position.y);
             Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
         }
 
-        _respawnTimer = respawnTime;
+        _respawnTimer = _respawnTime;
     }
 
     private void Update()

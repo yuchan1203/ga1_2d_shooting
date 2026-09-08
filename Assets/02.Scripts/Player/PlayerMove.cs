@@ -8,9 +8,9 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
 
     private PlayerSpeedControl _playerSpeedControl;
-    [SerializeField] private float wrapBoundaryX;
-    [SerializeField] private float maxPositionY;
-    [SerializeField] private float minPositionY;
+    [SerializeField] private float _wrapBoundaryX;
+    [SerializeField] private float _maxPositionY;
+    [SerializeField] private float _minPositionY;
 
     private void Awake()
     {
@@ -39,10 +39,10 @@ public class PlayerMove : MonoBehaviour
         _animator.SetInteger("x", (int)direction.x);
         transform.position += (Vector3)direction * _playerSpeedControl.PlayerSpeed * Time.deltaTime;
         var pos = transform.position;
-        if (pos.y < minPositionY) pos.y = minPositionY;
-        if (pos.y > maxPositionY) pos.y = maxPositionY;
-        if (pos.x < wrapBoundaryX * -1) pos.x = wrapBoundaryX;
-        if (pos.x > wrapBoundaryX) pos.x = wrapBoundaryX * -1;
+        if (pos.y < _minPositionY) pos.y = _minPositionY;
+        if (pos.y > _maxPositionY) pos.y = _maxPositionY;
+        if (pos.x < _wrapBoundaryX * -1) pos.x = _wrapBoundaryX;
+        if (pos.x > _wrapBoundaryX) pos.x = _wrapBoundaryX * -1;
         transform.position = pos;
     }
 }

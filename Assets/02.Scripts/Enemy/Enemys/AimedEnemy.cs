@@ -28,6 +28,6 @@ public class AimedEnemy : Enemy
             return;
         }
 
-        transform.Translate(_direction * moveSpeed * Time.deltaTime);
+        transform.Translate(_direction * _moveSpeed * Time.deltaTime);
     }
 }

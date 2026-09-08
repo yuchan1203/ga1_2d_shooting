@@ -20,6 +20,6 @@ public class HomingEnemy : Enemy
 
         Vector2 direction = _player.transform.position - transform.position;
         direction.Normalize();
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        transform.Translate(direction * _moveSpeed * Time.deltaTime);
     }
 }

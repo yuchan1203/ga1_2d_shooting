@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float destroyTime;
-    [SerializeField] private int bulletDamage;
+    [SerializeField] private float _destroyTime;
+    [SerializeField] private int _bulletDamage;
 
     private void Start()
     {
-        Destroy(gameObject, destroyTime);
+        Destroy(gameObject, _destroyTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(bulletDamage);
+            enemy.TakeDamage(_bulletDamage);
         }
     }
 }

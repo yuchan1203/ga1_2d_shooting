@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject[] bulletPrefabs;
-    [SerializeField] private Transform[] firePoints;
+    [SerializeField] private GameObject[] _bulletPrefabs;
+    [SerializeField] private Transform[] _firePoints;
     public float CoolDownTime { get; private set; } = 0.5f;
     private float _coolDown = 0;
     private bool _isAutoMode = false;
@@ -17,10 +17,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(bulletPrefabs[0], firePoints[0].position, firePoints[0].rotation);
-        Instantiate(bulletPrefabs[0], firePoints[1].position, firePoints[1].rotation);
-        Instantiate(bulletPrefabs[1], firePoints[2].position, firePoints[2].rotation);
-        Instantiate(bulletPrefabs[1], firePoints[3].position, firePoints[3].rotation);
+        Instantiate(_bulletPrefabs[0], _firePoints[0].position, _firePoints[0].rotation);
+        Instantiate(_bulletPrefabs[0], _firePoints[1].position, _firePoints[1].rotation);
+        Instantiate(_bulletPrefabs[1], _firePoints[2].position, _firePoints[2].rotation);
+        Instantiate(_bulletPrefabs[1], _firePoints[3].position, _firePoints[3].rotation);
         _coolDown = CoolDownTime;
     }
 

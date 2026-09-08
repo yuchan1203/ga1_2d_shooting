@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public ItemType type;
-    public float value;
+    public ItemType Type;
+    public float Value;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,23 +34,23 @@ public class Item : MonoBehaviour
             return;
         }
 
-        switch (type)
+        switch (Type)
         {
             case ItemType.Heal:
                 {
-                    player.TakeDamage((int)value * -1);
+                    player.Heal((int)Value);
                     Debug.Log($"플레이어 체력: {player.Health}");
                     break;
                 }
             case ItemType.MoveSpeedUp:
                 {
-                    playerSpeedControl.ChangeSpeed(value);
+                    playerSpeedControl.ChangeSpeed(Value);
                     Debug.Log($"플레이어 이동속도: {playerSpeedControl.PlayerSpeed}");
                     break;
                 }
             case ItemType.FireRateUp:
                 {
-                    playerAttack.ChangeCoolDown(value);
+                    playerAttack.ChangeCoolDown(Value);
                     Debug.Log($"플레이어 발사속도: {playerAttack.CoolDownTime}");
                     break;
                 }

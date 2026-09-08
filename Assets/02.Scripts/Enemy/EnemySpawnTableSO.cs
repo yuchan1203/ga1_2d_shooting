@@ -5,41 +5,41 @@ using UnityEngine;
 [System.Serializable]
 public struct EnemySpawnData
 {
-    public string enemyName;
-    public GameObject prefab;
-    public float spawnWeight;
+    public string EnemyName;
+    public GameObject Prefab;
+    public float SpawnWeight;
 }
 
 [CreateAssetMenu(fileName = "EnemySpawnTable", menuName = "Scriptable Objects/Enemy Spawn Table")]
 public class EnemySpawnTableSO : ScriptableObject
 {
-    public EnemySpawnData[] spawnList;
+    public EnemySpawnData[] SpawnList;
 
     public GameObject GetRandomEnemyPrefab()
     {
-        if (spawnList == null || spawnList.Length == 0)
+        if (SpawnList == null || SpawnList.Length == 0)
         {
             return null;
         }
 
         float totalWeight = 0f;
-        foreach (var enemy in spawnList)
+        foreach (var enemy in SpawnList)
         {
-            totalWeight += enemy.spawnWeight;
+            totalWeight += enemy.SpawnWeight;
         }
 
         float randomValue = UnityEngine.Random.Range(0f, totalWeight);
         float currentSum = 0f;
 
-        foreach (var enemy in spawnList)
+        foreach (var enemy in SpawnList)
         {
-            currentSum += enemy.spawnWeight;
+            currentSum += enemy.SpawnWeight;
             if (randomValue <= currentSum)
             {
-                return enemy.prefab;
+                return enemy.Prefab;
             }
         }
 
-        return spawnList[0].prefab;
+        return SpawnList[0].Prefab;
     }
 }
