@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _destroyTime;
     [SerializeField] private int _bulletDamage;
-
+    // todo: 총알 이미지 넣기 
     private void Start()
     {
         Destroy(gameObject, _destroyTime);

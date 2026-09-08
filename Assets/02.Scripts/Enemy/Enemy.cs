@@ -8,7 +8,9 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected int _damage;
     private Animator _animator;
-
+    // todo: 적 피격 시 에니메이션 추가하기 
+    // todo: 적 사망 시 에니메이션 추가하기
+    // todo: 적이 플레이어에게 닿으면 공격력만큼 체력 줄이라고 하게 만들기 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -21,7 +23,8 @@ public abstract class Enemy : MonoBehaviour
         Debug.Log($"Enemy HP:{_health}");
         if (_health <= 0)
         {
-            Destroy(this.gameObject);
+            ItemSpawner.Instance.SpawnItem(transform.position);
+            Destroy(gameObject);
         }
     }
 

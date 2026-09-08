@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private EnemySpawnTableSO _spawnTable;
     [SerializeField] private float _respawnTime = 5.0f;
-    [SerializeField] private float _maxPositionX = 3.0f;
+    [SerializeField] private float _maxPositionX = 2.0f;
 
     private float _respawnTimer = 0f;
     private float _randomX;
@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
         if (selectedPrefab != null)
         {
             float randomX = Random.Range(_maxPositionX * -1, _maxPositionX);
+            Debug.Log($"{randomX}");
             Vector2 spawnPosition = new Vector2(randomX, transform.position.y);
             Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
         }

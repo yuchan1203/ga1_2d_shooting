@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771c49e8fe497a74e965702d063d6d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownWardEnemy
-  _health: 100
+  _health: 20
   _moveSpeed: 3
   _damage: 10
 --- !u!61 &1420883272051768518

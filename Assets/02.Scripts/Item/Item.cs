@@ -4,7 +4,8 @@ public class Item : MonoBehaviour
 {
     public ItemType Type;
     public float Value;
-
+    // todo: 아이템이 소환되면 플레이어 쪽으로 이동하게 만들기 
+    // todo: 아이템에 에니메이션 추가하기 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player"))
