@@ -1,11 +1,18 @@
+using System;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
     public ItemType Type;
     public float Value;
-    // todo: 아이템이 소환되면 플레이어 쪽으로 이동하게 만들기 
-    // todo: 아이템에 에니메이션 추가하기 
+    private GameObject _player;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _delayTime = 1f;
+
+    private void Start()
+    {
+        _player = GameObject.FindWithTag("Player");
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player"))
@@ -58,5 +65,21 @@ public class Item : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        if (_delayTime > 0)
+        {
+            _delayTime -= Time.deltaTime;
+        }
+        else
+        {
+            Vector2 direction = _player.transform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
+            direction.Normalize();
+            transform.Translate(direction * (_moveSpeed * Time.deltaTime));
+        }
     }
 }

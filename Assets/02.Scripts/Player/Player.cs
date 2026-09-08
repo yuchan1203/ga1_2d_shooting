@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Health { get; private set; } = 50;
-    // todo: 데미지를 입었을 때 피격 효과 재생시키기 
+
     public void TakeDamage(int damage)
     {
         Health -= damage;

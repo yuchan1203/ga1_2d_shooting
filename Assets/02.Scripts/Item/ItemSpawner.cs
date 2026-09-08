@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    // todo: 아이템 스폰 확률 매직넘버 변수화 
     public static ItemSpawner Instance { get; private set; }
+    [SerializeField] private float _chanceOfItem = 0.3f;
     [SerializeField] private ItemSpawnTableSO _spawnTable;
     private float _randomX;
     private int _randomItem;
@@ -26,7 +26,7 @@ public class ItemSpawner : MonoBehaviour
     public void SpawnItem(Vector2 position)
     {
         GameObject selectedPrefab = _spawnTable.GetRandomItemPrefab();
-        if (selectedPrefab == null || Random.value > 0.3f)
+        if (selectedPrefab == null || Random.value > _chanceOfItem)
         {
             return;
         }

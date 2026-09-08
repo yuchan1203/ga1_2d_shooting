@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   _spawnTable: {fileID: 11400000, guid: 7b83b32cd7f3ea445aa3b63dfcfde4a1, type: 2}
-  _respawnTime: 5
+  _respawnTime: 3
   _maxPositionX: 2
 --- !u!4 &851280527
 Transform:
@@ -1693,7 +1693,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1435559248752617548, guid: 56c409f805439ee4d848c0a3023a4ffe, type: 3}
       propertyPath: m_Name
-      value: AttackEnemy
+      value: HomingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 8125838115527041958, guid: 56c409f805439ee4d848c0a3023a4ffe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1750,7 +1750,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1435559248752617548, guid: 8f58f7d55cd4ecf4ea61ca8307861e28, type: 3}
       propertyPath: m_Name
-      value: AheadEnemy
+      value: AimedEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 8125838115527041958, guid: 8f58f7d55cd4ecf4ea61ca8307861e28, type: 3}
       propertyPath: m_LocalPosition.x

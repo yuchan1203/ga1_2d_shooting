@@ -37,7 +37,10 @@ public class PlayerMove : MonoBehaviour
         var v = Input.GetAxisRaw("Vertical");
         var direction = new Vector2(h, v).normalized;
         _animator.SetInteger("x", (int)direction.x);
-        // todo: _playerSpeedControl이 없을 경우 고려해 방어 코드 추가하기 
+        if (_playerSpeedControl == null)
+        {
+            return;
+        }
         transform.position += (Vector3)direction * _playerSpeedControl.PlayerSpeed * Time.deltaTime;
         var pos = transform.position;
         if (pos.y < _minPositionY) pos.y = _minPositionY;
