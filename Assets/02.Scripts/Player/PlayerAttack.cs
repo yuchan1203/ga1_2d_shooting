@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Fire()
     {
+        // todo: 총알 유형을 명시적으로 구분하는 등의 방법을 사용해 매직넘버 제거 
         Instantiate(_bulletPrefabs[0], _firePoints[0].position, _firePoints[0].rotation);
         Instantiate(_bulletPrefabs[0], _firePoints[1].position, _firePoints[1].rotation);
         Instantiate(_bulletPrefabs[1], _firePoints[2].position, _firePoints[2].rotation);

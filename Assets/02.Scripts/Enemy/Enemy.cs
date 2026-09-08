@@ -23,6 +23,7 @@ public abstract class Enemy : MonoBehaviour
         Debug.Log($"Enemy HP:{_health}");
         if (_health <= 0)
         {
+            // todo: 싱글톤 객체에 의존하고 있는 문제를 수정해 결합도 낮추기 
             ItemSpawner.Instance.SpawnItem(transform.position);
             Destroy(gameObject);
         }

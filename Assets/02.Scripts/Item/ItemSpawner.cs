@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
+    // todo: 아이템 스폰 확률 매직넘버 변수화 
     public static ItemSpawner Instance { get; private set; }
     [SerializeField] private ItemSpawnTableSO _spawnTable;
     private float _randomX;
