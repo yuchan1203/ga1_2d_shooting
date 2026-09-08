@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 184246693}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.7, y: -8.55, z: 0}
+  m_LocalPosition: {x: 0.73, y: -10.15, z: 0}
   m_LocalScale: {x: 1, y: 12.050101, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 529978287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.64, y: 6.08, z: 0}
+  m_LocalPosition: {x: 0.87, y: 7.68, z: 0}
   m_LocalScale: {x: 1, y: 12.050101, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -913,9 +913,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea641eeaddcaadc479c31067af8ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  spawnTable: {fileID: 11400000, guid: 7b83b32cd7f3ea445aa3b63dfcfde4a1, type: 2}
-  respawnTime: 3
-  maxPositionX: 2
+  _spawnTable: {fileID: 11400000, guid: 7b83b32cd7f3ea445aa3b63dfcfde4a1, type: 2}
+  _respawnTime: 5
+  _maxPositionX: 3
 --- !u!4 &851280527
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +990,7 @@ Transform:
   m_GameObject: {fileID: 937887127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.83069, y: -1.4304999, z: 0}
+  m_LocalPosition: {x: -6.46, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 12.0501, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1284,9 +1284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4bbc4ac0eb51f488be3f67638b37ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  wrapBoundaryX: 2
-  maxPositionY: -2
-  minPositionY: -4.7
+  _wrapBoundaryX: 2
+  _maxPositionY: -2
+  _minPositionY: -4
 --- !u!114 &1571312724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,10 +1311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd33f13140a8243912738201e0270d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  bulletPrefabs:
+  _bulletPrefabs:
   - {fileID: 2248744005796631978, guid: 7a757895f0b5481448c77eb766dfaeee, type: 3}
   - {fileID: 2248744005796631978, guid: ae7b8f2bd55b56d449493a315ec09abd, type: 3}
-  firePoints:
+  _firePoints:
   - {fileID: 555796479}
   - {fileID: 894975987}
   - {fileID: 365923609}
@@ -1458,7 +1458,7 @@ Transform:
   m_GameObject: {fileID: 1839470031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.07931, y: -1.4104999, z: 0}
+  m_LocalPosition: {x: 7.86, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 12.0501, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

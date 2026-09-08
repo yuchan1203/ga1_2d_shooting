@@ -16,8 +16,9 @@ public class AimedEnemy : Enemy
             Debug.Log("플레이어 태그를 가진 게임 오브젝트를 찾지 못했습니다.");
             return;
         }
-
         _direction = _player.transform.position - transform.position;
+        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
         _direction.Normalize();
     }
 

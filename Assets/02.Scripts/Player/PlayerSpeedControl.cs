@@ -27,6 +27,6 @@ public class PlayerSpeedControl : MonoBehaviour
     public void ChangeSpeed(float changeSpeed)
     {
         PlayerSpeed += changeSpeed;
-        Debug.Log("Speed: " + PlayerSpeed);
+        //Debug.Log("Speed: " + PlayerSpeed);
     }
 }

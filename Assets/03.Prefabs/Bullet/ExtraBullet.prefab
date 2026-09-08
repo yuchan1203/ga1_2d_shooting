@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f466cc522299a409615acd646abaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletController
-  bulletSpeed: 15
+  _bulletSpeed: 15
 --- !u!70 &4519885270327770188
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,5 +184,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85ec957d614b0e4caa1afc0f7fa4c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletMain
-  destroyTime: 3
-  bulletDamage: 10
+  _destroyTime: 3
+  _bulletDamage: 10
