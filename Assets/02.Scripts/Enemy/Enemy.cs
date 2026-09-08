@@ -23,7 +23,8 @@ public abstract class Enemy : MonoBehaviour
         Debug.Log($"Enemy HP:{_health}");
         if (_health <= 0)
         {
-            // todo: 싱글톤 객체에 의존하고 있는 문제를 수정해 결합도 낮추기 
+            // todo: Enemy 클래스가 ItemSpawner.Instance에 직접 의존하고 있어 결합도가 높습니다.
+            // Enemy 사망 시 이벤트를 발생시키고, ItemSpawner가 이 이벤트를 구독하여 아이템을 생성하도록 변경하여 결합도를 낮추십시오.
             ItemSpawner.Instance.SpawnItem(transform.position);
             Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);

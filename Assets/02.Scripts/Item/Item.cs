@@ -8,7 +8,10 @@ public class Item : MonoBehaviour
     private GameObject _player;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _delayTime = 1f;
-
+    // todo: Item 클래스가 아이템의 타입 정보, 효과 적용 로직, 이동 로직(추적) 등 너무 많은 책임을 담당하고 있습니다.
+    // 특히 아이템 종류(ItemType)가 늘어날 때마다 switch 문이 커지는 구조입니다.
+    // 전략 패턴(Strategy Pattern)을 사용하여 아이템 효과 적용 로직을 분리하고,
+    // Item 클래스는 아이템의 기본 동작(이동, 수집 처리)만 담당하도록 개선을 검토하십시오.
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -19,7 +22,7 @@ public class Item : MonoBehaviour
         {
             return;
         }
-
+        // todo: 플레이어가 아이템을 먹을 때 획득 이펙트 추가하기
         Player player = other.GetComponent<Player>();
         PlayerSpeedControl playerSpeedControl = other.GetComponent<PlayerSpeedControl>();
         PlayerAttack playerAttack = other.GetComponent<PlayerAttack>();
@@ -75,6 +78,9 @@ public class Item : MonoBehaviour
         }
         else
         {
+            // todo: Update()에서 매 프레임 _player의 위치를 참조하기 위해 Start()에서 태그로 찾은 게임 오브젝트를 사용합니다.
+            // 플레이어가 파괴되거나 태그가 변경되는 등의 예외 상황에 대한 처리가 부족하며, 매 프레임 위치를 계산하는 비용이 발생합니다.
+            // 플레이어의 위치를 Update에서 매번 구하기보다, 플레이어의 위치를 참조할 수 있는 프로퍼티를 제공하거나 이벤트를 통해 정보를 전달받는 구조를 고려하십시오.
             Vector2 direction = _player.transform.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
