@@ -62,6 +62,7 @@ public class ItemGet : MonoBehaviour
         {
             Instantiate(_getItemPrefab, transform.position, Quaternion.identity);
         }
+        AudioManager.Instance.PlayGetItemSound();
         Destroy(gameObject);
     }
 }
