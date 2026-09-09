@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _wrapBoundaryX;
     [SerializeField] private float _maxPositionY;
     [SerializeField] private float _minPositionY;
+    [SerializeField] private TrailRenderer _trailRenderer;
 
     private void Awake()
     {
@@ -35,6 +36,14 @@ public class PlayerMove : MonoBehaviour
     {
         var h = Input.GetAxisRaw("Horizontal");
         var v = Input.GetAxisRaw("Vertical");
+        if (v < 0)
+        {
+            _trailRenderer.emitting = false;
+        }
+        else
+        {
+            _trailRenderer.emitting = true;
+        }
         var direction = new Vector2(h, v).normalized;
         _animator.SetInteger("x", (int)direction.x);
         if (_playerSpeedControl == null)
@@ -45,8 +54,16 @@ public class PlayerMove : MonoBehaviour
         var pos = transform.position;
         if (pos.y < _minPositionY) pos.y = _minPositionY;
         if (pos.y > _maxPositionY) pos.y = _maxPositionY;
-        if (pos.x < _wrapBoundaryX * -1) pos.x = _wrapBoundaryX;
-        if (pos.x > _wrapBoundaryX) pos.x = _wrapBoundaryX * -1;
+        if (pos.x < _wrapBoundaryX * -1)
+        {
+            _trailRenderer.emitting = false;
+            pos.x = _wrapBoundaryX;
+        }
+        if (pos.x > _wrapBoundaryX)
+        {
+            _trailRenderer.emitting = false;
+            pos.x = _wrapBoundaryX * -1;
+        }
         transform.position = pos;
     }
 }

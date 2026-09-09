@@ -1,18 +1,19 @@
 using UnityEngine;
-
 // 플레이어 스크립트 
-
 public class Player : MonoBehaviour
 {
     public int Health { get; private set; } = 50;
-    // todo: 플레이어 죽을 때 폭발 이펙트 추가하기 
-    // todo: 플레이어 꼬리에 trail 추가하기 
+    [SerializeField] private GameObject _playerDeathPrefab;
     public void TakeDamage(int damage)
     {
         Health -= damage;
         if (Health <= 0)
         {
-            Destroy(this.gameObject);
+            if (_playerDeathPrefab != null)
+            {
+                Instantiate(_playerDeathPrefab, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
         }
     }
     // todo: Health 프로퍼티의 setter가 private으로 되어 있어 외부에서 직접 수정할 수 없지만,

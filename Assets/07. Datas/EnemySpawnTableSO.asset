@@ -13,12 +13,21 @@ MonoBehaviour:
   m_Name: EnemySpawnTableSO
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnTableSO
   SpawnList:
-  - EnemyName: DownWardEnemy
+  - EnemyName: Normal
     Prefab: {fileID: 1435559248752617548, guid: 04d1292f1055a0b489e396c38e646ef8, type: 3}
-    SpawnWeight: 50
-  - EnemyName: AimedEnemy
+    SpawnWeight: 9
+  - EnemyName: Aimed
     Prefab: {fileID: 1435559248752617548, guid: 8f58f7d55cd4ecf4ea61ca8307861e28, type: 3}
-    SpawnWeight: 30
-  - EnemyName: HomingEnemy
+    SpawnWeight: 8
+  - EnemyName: Homing
     Prefab: {fileID: 1435559248752617548, guid: 56c409f805439ee4d848c0a3023a4ffe, type: 3}
-    SpawnWeight: 20
+    SpawnWeight: 6
+  - EnemyName: Boss
+    Prefab: {fileID: 1435559248752617548, guid: ec741be5b3b666f468c04ba21d7bd0ac, type: 3}
+    SpawnWeight: 1
+  - EnemyName: Fast
+    Prefab: {fileID: 1435559248752617548, guid: cf2b5f3809f7068418f73ae013fd4710, type: 3}
+    SpawnWeight: 10
+  - EnemyName: Strong
+    Prefab: {fileID: 1435559248752617548, guid: e0c5c8e4e2a8991408ea3270a45b2738, type: 3}
+    SpawnWeight: 7

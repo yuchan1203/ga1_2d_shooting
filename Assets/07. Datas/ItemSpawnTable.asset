@@ -13,12 +13,21 @@ MonoBehaviour:
   m_Name: ItemSpawnTable
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnTableSO
   SpawnList:
-  - ItemName: HealItem
-    Prefab: {fileID: 3881095234086200575, guid: 7d6d3607676fc6f42bb218cc09074f49, type: 3}
-    SpawnWeight: 50
-  - ItemName: FireRateUpItem
-    Prefab: {fileID: 4584779242768617105, guid: d452b89c84bdd7d4d9eba0c7cc75bf98, type: 3}
-    SpawnWeight: 30
-  - ItemName: MoveSpeedUpItem
-    Prefab: {fileID: 8633406374586003725, guid: 8d7079b58eb693e4aba22e18422087ab, type: 3}
-    SpawnWeight: 20
+  - ItemName: PlayerHeal
+    Prefab: {fileID: 621584630249350254, guid: af9d1131c788d454fa7dae4544fa99d2, type: 3}
+    SpawnWeight: 10
+  - ItemName: FireRateUp
+    Prefab: {fileID: 5310963310368244162, guid: 84b95e80250efd2408969492c3002afd, type: 3}
+    SpawnWeight: 10
+  - ItemName: MoveSpeedUp
+    Prefab: {fileID: 7370043300670028658, guid: 19b7e95a091652640b4df605bec6a161, type: 3}
+    SpawnWeight: 10
+  - ItemName: BulletDamageUp
+    Prefab: {fileID: 519974796596659617, guid: 996928e6bd7f53b4c922c5099f203847, type: 3}
+    SpawnWeight: 10
+  - ItemName: GetBomb
+    Prefab: {fileID: 9021979860543945138, guid: e02b31792a067c74a81e275fcda3930b, type: 3}
+    SpawnWeight: 10
+  - ItemName: GetCoin
+    Prefab: {fileID: 6954758372675618198, guid: 6a301d09debaf1e4a8d3e2657cc44a96, type: 3}
+    SpawnWeight: 10

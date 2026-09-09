@@ -1,6 +1,9 @@
 public enum ItemType
 {
-    Heal,
+    PlayerHeal,
     MoveSpeedUp,
     FireRateUp,
+    BulletDamageUp,
+    GetBomb,
+    GetCoin
 }
