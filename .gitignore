@@ -82,3 +82,5 @@ crashlytics-build.properties
 .idea
 .idea/
 .idea/**
+
+Assets/ThirdParty/
