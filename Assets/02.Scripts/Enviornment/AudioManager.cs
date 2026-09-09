@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip PlayerShootSound;
     public AudioClip EnemyHitSound;
     public AudioClip PlayerHitSound;
+    public AudioClip BossSummonSound;
+    public AudioClip GameStartSound;
+    public AudioClip UIButtonClicked;
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -56,7 +59,9 @@ public class AudioManager : MonoBehaviour
     public void PlayGetItemSound() => PlaySFX(GetItemSound);
     public void PlayPlayerShootSound() => PlaySFX(PlayerShootSound);
     public void PlayEnemyHitSound() => PlaySFX(EnemyHitSound);
-    public void PlayPlayerHitSound() => PlaySFX(PlayerHitSound);
+    public void PlayBossSummonSound() => PlaySFX(BossSummonSound);
+    public void PlayGameStartSound() => PlaySFX(GameStartSound);
+    public void PlayUIButtonClicked() => PlaySFX(UIButtonClicked);
     private void OnDestroy()
     {
         if (Instance == this) Instance = null;
