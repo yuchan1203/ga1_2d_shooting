@@ -1,7 +1,5 @@
 using UnityEngine;
-
 // 적이 죽으면 30% 확률로 아이템을 소환하는 스크립트 
-
 public class ItemSpawner : MonoBehaviour
 {
     public static ItemSpawner Instance { get; private set; }
@@ -10,8 +8,7 @@ public class ItemSpawner : MonoBehaviour
     private float _randomX;
     private int _randomItem;
     private Vector2 _vector2;
-
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
         {
@@ -22,14 +19,10 @@ public class ItemSpawner : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public void SpawnItem(Vector2 position)
     {
         GameObject selectedPrefab = _spawnTable.GetRandomItemPrefab();
-        if (selectedPrefab == null || Random.value > _chanceOfItem)
-        {
-            return;
-        }
+        if (selectedPrefab == null || Random.value > _chanceOfItem) return;
         Instantiate(selectedPrefab, position, Quaternion.identity);
     }
 }

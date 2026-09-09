@@ -1,27 +1,17 @@
 using UnityEngine;
-
-// 플레이어를 바라보고 플레이어 쪽으로 이동하는 적 스크립트
-
 public class HomingEnemy : Enemy
 {
-    private GameObject _player;
-
-    private void Start()
+    private Transform _targetPlayer;
+    public override void Init(Transform targetPlayer)
     {
-        _player = GameObject.FindWithTag("Player");
+        _targetPlayer = targetPlayer;
     }
-
     protected override void Move()
     {
-        if (_player == null)
-        {
-            return;
-        }
-
-        Vector2 direction = _player.transform.position - transform.position;
+        if (_targetPlayer == null) return;
+        Vector2 direction = (_targetPlayer.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
-        direction.Normalize();
-        transform.Translate(direction * (_moveSpeed * Time.deltaTime));
+        transform.Translate(direction * (_moveSpeed * Time.deltaTime), Space.World);
     }
 }

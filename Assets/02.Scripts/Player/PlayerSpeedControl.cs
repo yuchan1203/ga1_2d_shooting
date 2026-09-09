@@ -1,32 +1,30 @@
 using UnityEngine;
-
 // 키보드 입력에 따라서 플레이어의 이동 속도를 결정하는 스크립트 
-
 public class PlayerSpeedControl : MonoBehaviour
 {
     public float PlayerSpeed { get; private set; } = 5f;
-
     private void Update()
     {
         SpeedControl();
     }
-
     private void SpeedControl()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ChangeSpeed(1);
+            SpeedUp(1);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            ChangeSpeed(-1);
+            SpeedDown(1);
         }
     }
-
-    public void ChangeSpeed(float changeSpeed)
+    public void SpeedUp(float value)
     {
-        PlayerSpeed += changeSpeed;
-        //Debug.Log("Speed: " + PlayerSpeed);
+        PlayerSpeed += value;
+    }
+    public void SpeedDown(float value)
+    {
+        PlayerSpeed -= value;
     }
 }

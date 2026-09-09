@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6668962402707781455}
   - component: {fileID: 3260471751134775724}
   m_Layer: 12
-  m_Name: AttackEnemy
+  m_Name: HomingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7401234724645061890}
   - component: {fileID: 8693047259570168545}
   - component: {fileID: 1257570166144906773}
+  - component: {fileID: 3557494102186780281}
+  - component: {fileID: 1601017265200749728}
   m_Layer: 13
   m_Name: MoveSpeedUpItem
   m_TagString: Item
@@ -142,10 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcd5af495cda19469f1540ad29fe90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  Type: 1
-  Value: 1
-  _moveSpeed: 10
-  _delayTime: 1
 --- !u!95 &1257570166144906773
 Animator:
   serializedVersion: 7
@@ -168,3 +166,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3557494102186780281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633406374586003725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a5c1a02329590499ecc362a65308f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGet
+  getItemPrefab: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  Type: 1
+  Value: 1
+--- !u!114 &1601017265200749728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633406374586003725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d2a7ec99fb11c40a830006413f16d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemMove
+  _delayTime: 1
+  _moveSpeed: 10

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1504958065292108650}
   - component: {fileID: 188636169802960099}
   m_Layer: 12
-  m_Name: AheadEnemy
+  m_Name: AimedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
