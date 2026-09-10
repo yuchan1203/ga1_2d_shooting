@@ -244,11 +244,12 @@ MonoBehaviour:
   _sfxSource: {fileID: 7570270165975757538}
   DefaultBgmSound: {fileID: 8300000, guid: 060ff74201b974a45a31780d75a516ee, type: 3}
   EnemyDeadSound: {fileID: 8300000, guid: 2cc5b0606419f454ca1645207461506e, type: 3}
-  PlayerDeadSound: {fileID: 0}
+  PlayerDeadSound: {fileID: 8300000, guid: d09348c5bae0ac645be7ba67d21c3dbb, type: 3}
   GetItemSound: {fileID: 8300000, guid: 8424fbdab05f03f408b8c2ade5a71c9d, type: 3}
   PlayerShootSound: {fileID: 8300000, guid: 996d6aed65726c648a196b61fecee9f0, type: 3}
   EnemyHitSound: {fileID: 0}
-  PlayerHitSound: {fileID: 0}
-  BossSummonSound: {fileID: 0}
+  PlayerHitSound: {fileID: 8300000, guid: 2258174ffcc9bbc4abf5b13b0d44a75a, type: 3}
+  BossSummonSound: {fileID: 8300000, guid: 31a1123f82181614c83de06fcc75c509, type: 3}
   GameStartSound: {fileID: 0}
   UIButtonClicked: {fileID: 8300000, guid: 02127eb8179b95b41861e03efb2acec5, type: 3}
+  GameClearSound: {fileID: 8300000, guid: 8214694e2b7f2804fbd41b30f6a42b40, type: 3}

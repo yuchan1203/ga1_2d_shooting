@@ -63,7 +63,7 @@ public abstract class Enemy : MonoBehaviour
         else
         {
             UpdateFireEffect();
-            _animator.SetTrigger("hit");
+            _animator.SetTrigger("Hit");
             if (AudioManager.Instance.EnemyHitSound != null)
             {
                 AudioManager.Instance.PlayEnemyHitSound();

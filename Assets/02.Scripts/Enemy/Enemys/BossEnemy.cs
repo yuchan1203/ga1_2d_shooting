@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class BossEnemy : Enemy
 {
@@ -6,6 +7,15 @@ public class BossEnemy : Enemy
     {
         _targetPlayer = targetPlayer;
     }
+
+    private void Start()
+    {
+        if (AudioManager.Instance.EnemyHitSound != null)
+        {
+            AudioManager.Instance.PlayBossSummonSound();
+        }
+    }
+
     protected override void Move()
     {
         if (_targetPlayer == null) return;
