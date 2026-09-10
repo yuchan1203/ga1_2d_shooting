@@ -4,9 +4,16 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject[] _bulletPrefabs;
     [SerializeField] private Transform[] _firePoints;
-    public float CoolDownTime { get; private set; } = 0.5f;
+    [SerializeField] private GameObject _bombPrefab;
+    private float _coolDownTime = 0.5f;
     private float _coolDown = 0;
     private bool _isAutoMode = false;
+    private int _bomb = 0;
+
+    public void GetBomb(int var)
+    {
+        _bomb += var;
+    }
     private void CoolDownTimer()
     {
         if (_coolDown > 0) _coolDown -= Time.deltaTime;
@@ -19,7 +26,12 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(_bulletPrefabs[1], _firePoints[2].position, _firePoints[2].rotation);
         Instantiate(_bulletPrefabs[1], _firePoints[3].position, _firePoints[3].rotation);
         AudioManager.Instance.PlayPlayerShootSound();
-        _coolDown = CoolDownTime;
+        _coolDown = _coolDownTime;
+    }
+
+    private void UseBomb()
+    {
+        Instantiate(_bombPrefab, _firePoints[0].position, _firePoints[0].rotation);
     }
     private void PlayerAttacking()
     {
@@ -34,6 +46,11 @@ public class PlayerAttack : MonoBehaviour
                 Fire();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.B) && _bomb > 0)
+        {
+            UseBomb();
+        }
     }
     private void Check1Num()
     {
@@ -47,18 +64,18 @@ public class PlayerAttack : MonoBehaviour
     }
     public void CoolDownUpgrade(float var)
     {
-        CoolDownTime -= var;
-        if (CoolDownTime < 0)
+        _coolDownTime -= var;
+        if (_coolDownTime < 0)
         {
-            CoolDownTime = 0;
+            _coolDownTime = 0;
         }
     }
     public void CoolDownDowngrade(float var)
     {
-        CoolDownTime += var;
-        if (CoolDownTime > 1)
+        _coolDownTime += var;
+        if (_coolDownTime > 1)
         {
-            CoolDownTime = 1;
+            _coolDownTime = 1;
         }
     }
 }

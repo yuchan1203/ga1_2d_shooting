@@ -14,7 +14,6 @@ public class ItemGet : MonoBehaviour
             case ItemType.PlayerHeal:
                 {
                     player.Heal((int)Value);
-                    Debug.Log($"플레이어 체력: {player.Health}");
                     break;
                 }
             case ItemType.MoveSpeedUp:
@@ -22,7 +21,6 @@ public class ItemGet : MonoBehaviour
                     PlayerSpeedControl playerSpeedControl = other.GetComponentInParent<PlayerSpeedControl>();
                     if (playerSpeedControl == null) return;
                     playerSpeedControl.SpeedUp(Value);
-                    Debug.Log($"플레이어 이동속도: {playerSpeedControl.PlayerSpeed}");
                     break;
                 }
             case ItemType.FireRateUp:
@@ -30,7 +28,6 @@ public class ItemGet : MonoBehaviour
                     PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
                     if (playerAttack == null) return;
                     playerAttack.CoolDownUpgrade(Value);
-                    Debug.Log($"플레이어 발사속도: {playerAttack.CoolDownTime}");
                     break;
                 }
             case ItemType.BulletDamageUp:
@@ -38,15 +35,13 @@ public class ItemGet : MonoBehaviour
                     //PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
                     //if (playerAttack == null) return;
                     //playerAttack.ChangeCoolDown(Value);
-                    //Debug.Log($"플레이어 총알 데미지: {playerAttack.CoolDownTime}");
                     break;
                 }
             case ItemType.GetBomb:
                 {
-                    //PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
-                    //if (playerAttack == null) return;
-                    //playerAttack.ChangeCoolDown(Value);
-                    //Debug.Log($"플레이어 폭탄 개수: {playerAttack.CoolDownTime}");
+                    PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
+                    if (playerAttack == null) return;
+                    playerAttack.GetBomb((int)Value);
                     break;
                 }
             case ItemType.GetCoin:
@@ -54,7 +49,6 @@ public class ItemGet : MonoBehaviour
                     //PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
                     //if (playerAttack == null) return;
                     //playerAttack.ChangeCoolDown(Value);
-                    //Debug.Log($"플레이어 코인 개수: {playerAttack.CoolDownTime}");
                     break;
                 }
         }
