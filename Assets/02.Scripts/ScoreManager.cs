@@ -1,12 +1,20 @@
+using System;
 using UnityEngine;
 using TMPro;
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instance { get; private set; }
     [SerializeField] private TextMeshProUGUI _bestScoreTextUI;
     [SerializeField] private TextMeshProUGUI _currentScoreTextUI;
     [SerializeField] private int _scorePerKill = 100;
     private int _bestScore = 0;
     private int _currentScore = 0;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void AddScore(int score)
     {
         _currentScore += score;
