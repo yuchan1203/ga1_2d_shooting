@@ -34,7 +34,7 @@ public abstract class Enemy : MonoBehaviour
                 emission.rateOverTime = 0f;
             }
         }
-        Debug.Log($"_maxHealth: {_maxHealth},  health: {_health}");
+        //Debug.Log($"_maxHealth: {_maxHealth},  health: {_health}");
     }
     public virtual void Init(Transform targetPlayer) { }
     public void TakeDamage(int bulletDamage)
