@@ -42,10 +42,8 @@ public abstract class Enemy : MonoBehaviour
         _health -= bulletDamage;
         if (_health <= 0)
         {
-            if (ScoreUI.Instance != null)
-            {
-                ScoreUI.Instance.AddKillScore();
-            }
+            ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
+            scoreManager.AddScore(100);
             if (ItemSpawner.Instance != null && Random.value <= (_chanceOfItem / 100))
             {
                 ItemSpawner.Instance.SpawnItem(transform.position);
