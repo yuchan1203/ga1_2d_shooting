@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
+            Health = 0;
             PlayerDeath();
         }
         else if (AudioManager.Instance.PlayerHitSound != null)
@@ -29,9 +30,9 @@ public class Player : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    public void Heal(int var)
+    public void Heal(int healAmount)
     {
-        Health += var;
+        Health += healAmount;
         if (Health > _maxHealth)
         {
             Health = _maxHealth;
