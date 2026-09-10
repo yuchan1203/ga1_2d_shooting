@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 2215967076059454191}
   - component: {fileID: 6668962402707781455}
   - component: {fileID: 3260471751134775724}
+  - component: {fileID: 1097378254414678812}
+  - component: {fileID: 5861350083802297680}
+  - component: {fileID: 4143603707495179515}
   m_Layer: 12
   m_Name: HomingEnemy
   m_TagString: Enemy
@@ -136,13 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945270e87b8e6bc458831271b9dc8f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
-  _health: 50
   _moveSpeed: 1
-  _chanceOfItem: 50
   _damage: 25
-  _deathEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _attackEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _fireParticlePrefab: {fileID: 8891297334280618237, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
 --- !u!58 &6668962402707781455
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,6 +199,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1097378254414678812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b7858825c0f234fb5c5cbac1d331b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 50
+--- !u!114 &5861350083802297680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b89bc115454b3c44a83e6af462d35e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDropHandler
+  _chanceOfItem: 50
+--- !u!114 &4143603707495179515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d98c3de2b09b164394ab851a0786a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVFX
+  _deathEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _attackEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _fireParticlePrefab: {fileID: 8891297334280618237, guid: f1278082812a14c49b29db33e9e6078b, type: 3}
 --- !u!1001 &7512190788119189443
 PrefabInstance:
   m_ObjectHideFlags: 0

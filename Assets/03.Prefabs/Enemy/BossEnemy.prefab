@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 6668962402707781455}
   - component: {fileID: 3260471751134775724}
   - component: {fileID: -2700761704930801169}
+  - component: {fileID: 7345052469116462513}
+  - component: {fileID: 5619753425493046049}
+  - component: {fileID: 4709366672781348055}
   m_Layer: 12
   m_Name: BossEnemy
   m_TagString: Enemy
@@ -194,13 +197,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1f29cbda18929489119141a96da191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
-  _health: 100
   _moveSpeed: 0.5
-  _chanceOfItem: 100
   _damage: 50
-  _deathEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _attackEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _fireParticlePrefab: {fileID: 8891297334280618237, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
+--- !u!114 &7345052469116462513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b7858825c0f234fb5c5cbac1d331b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 100
+--- !u!114 &5619753425493046049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b89bc115454b3c44a83e6af462d35e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDropHandler
+  _chanceOfItem: 100
+--- !u!114 &4709366672781348055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d98c3de2b09b164394ab851a0786a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVFX
+  _deathEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _attackEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _fireParticlePrefab: {fileID: 8891297334280618237, guid: f1278082812a14c49b29db33e9e6078b, type: 3}
 --- !u!1001 &7793208039407985879
 PrefabInstance:
   m_ObjectHideFlags: 0

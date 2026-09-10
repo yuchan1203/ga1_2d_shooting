@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 8125838115527041958}
   - component: {fileID: 6396043248231953262}
   - component: {fileID: 860513628508749885}
-  - component: {fileID: -1380630648140335103}
   - component: {fileID: 1504958065292108650}
   - component: {fileID: 188636169802960099}
+  - component: {fileID: -1380630648140335103}
+  - component: {fileID: -7711099699152776883}
+  - component: {fileID: 2700765882222243815}
+  - component: {fileID: 5891672778350795011}
   m_Layer: 12
   m_Name: AimedEnemy
   m_TagString: Enemy
@@ -123,25 +126,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1380630648140335103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435559248752617548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de377d95c896a7479c64ba08a5a9a6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AimedEnemy
-  _health: 30
-  _moveSpeed: 2
-  _chanceOfItem: 30
-  _damage: 25
-  _deathEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _attackEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _fireParticlePrefab: {fileID: 8891297334280618237, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
 --- !u!60 &1504958065292108650
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -217,6 +201,61 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1380630648140335103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de377d95c896a7479c64ba08a5a9a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AimedEnemy
+  _moveSpeed: 2
+  _damage: 25
+--- !u!114 &-7711099699152776883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b89bc115454b3c44a83e6af462d35e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDropHandler
+  _chanceOfItem: 30
+--- !u!114 &2700765882222243815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d98c3de2b09b164394ab851a0786a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVFX
+  _deathEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _attackEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _fireParticlePrefab: {fileID: 8891297334280618237, guid: f1278082812a14c49b29db33e9e6078b, type: 3}
+--- !u!114 &5891672778350795011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b7858825c0f234fb5c5cbac1d331b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 30
 --- !u!1001 &7047996786439235330
 PrefabInstance:
   m_ObjectHideFlags: 0

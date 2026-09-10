@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 1548351621064857965}
   - component: {fileID: 1420883272051768518}
   - component: {fileID: 1686719765560205964}
+  - component: {fileID: 5699855018427124864}
+  - component: {fileID: 557822049523206889}
+  - component: {fileID: 4371052471633405711}
   m_Layer: 12
   m_Name: NormalEnemy
   m_TagString: Enemy
@@ -135,13 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771c49e8fe497a74e965702d063d6d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownWardEnemy
-  _health: 20
   _moveSpeed: 2.5
-  _chanceOfItem: 20
   _damage: 10
-  _deathEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _attackEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _fireParticlePrefab: {fileID: 8891297334280618237, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
 --- !u!61 &1420883272051768518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,6 +208,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5699855018427124864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b7858825c0f234fb5c5cbac1d331b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 20
+--- !u!114 &557822049523206889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d98c3de2b09b164394ab851a0786a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVFX
+  _deathEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _attackEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _fireParticlePrefab: {fileID: 8891297334280618237, guid: f1278082812a14c49b29db33e9e6078b, type: 3}
+--- !u!114 &4371052471633405711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b89bc115454b3c44a83e6af462d35e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDropHandler
+  _chanceOfItem: 20
 --- !u!1001 &4549575928339201883
 PrefabInstance:
   m_ObjectHideFlags: 0

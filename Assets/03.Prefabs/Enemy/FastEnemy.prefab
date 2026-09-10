@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 1420883272051768518}
   - component: {fileID: 1686719765560205964}
   - component: {fileID: -8909971363122715506}
+  - component: {fileID: 3551506599857637341}
+  - component: {fileID: 1417925065491820491}
+  - component: {fileID: 5690602642283897630}
   m_Layer: 12
   m_Name: FastEnemy
   m_TagString: Enemy
@@ -203,14 +206,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e263d00cf7f92841b06632e7ff728b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FastEnemy
-  _health: 10
   _moveSpeed: 3
-  _chanceOfItem: 10
   _damage: 5
-  _deathEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _attackEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
-  _fireParticlePrefab: {fileID: 8891297334280618237, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
-  _spriteAngleOffset: -180
+--- !u!114 &3551506599857637341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b89bc115454b3c44a83e6af462d35e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDropHandler
+  _chanceOfItem: 10
+--- !u!114 &1417925065491820491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d98c3de2b09b164394ab851a0786a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyVFX
+  _deathEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _attackEffectPrefab: {fileID: 8194992990867289339, guid: b27529735d9931b4dabee75c82ac8925, type: 3}
+  _fireParticlePrefab: {fileID: 8891297334280618237, guid: f1278082812a14c49b29db33e9e6078b, type: 3}
+--- !u!114 &5690602642283897630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435559248752617548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b7858825c0f234fb5c5cbac1d331b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 10
 --- !u!1001 &617258317897235442
 PrefabInstance:
   m_ObjectHideFlags: 0
