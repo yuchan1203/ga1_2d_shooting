@@ -9,28 +9,23 @@ public struct EnemySpawnData
     public GameObject Prefab;
     public float SpawnWeight;
 }
-
 [CreateAssetMenu(fileName = "EnemySpawnTable", menuName = "Scriptable Objects/Enemy Spawn Table")]
 public class EnemySpawnTableSO : ScriptableObject
 {
     public EnemySpawnData[] SpawnList;
-
     public GameObject GetRandomEnemyPrefab()
     {
         if (SpawnList == null || SpawnList.Length == 0)
         {
             return null;
         }
-
         float totalWeight = 0f;
         foreach (var enemy in SpawnList)
         {
             totalWeight += enemy.SpawnWeight;
         }
-
         float randomValue = UnityEngine.Random.Range(0f, totalWeight);
         float currentSum = 0f;
-
         foreach (var enemy in SpawnList)
         {
             currentSum += enemy.SpawnWeight;
@@ -39,7 +34,6 @@ public class EnemySpawnTableSO : ScriptableObject
                 return enemy.Prefab;
             }
         }
-
         return SpawnList[0].Prefab;
     }
 }

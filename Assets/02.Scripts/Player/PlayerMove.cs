@@ -1,23 +1,17 @@
-using System;
 using UnityEngine;
-
 // 키보드 입력에 따라서 플레이어 이동을 처리하는 스크립트
-
 public class PlayerMove : MonoBehaviour
 {
     private Animator _animator;
-
     private PlayerSpeedControl _playerSpeedControl;
     [SerializeField] private float _wrapBoundaryX;
     [SerializeField] private float _maxPositionY;
     [SerializeField] private float _minPositionY;
     [SerializeField] private TrailRenderer _trailRenderer;
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
-
     private void Start()
     {
         var pos = transform.position;
@@ -26,12 +20,10 @@ public class PlayerMove : MonoBehaviour
         transform.position = pos;
         _playerSpeedControl = GetComponent<PlayerSpeedControl>();
     }
-
     private void Update()
     {
         Move();
     }
-
     private void Move()
     {
         var h = Input.GetAxisRaw("Horizontal");

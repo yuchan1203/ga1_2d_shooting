@@ -1,4 +1,5 @@
 using UnityEngine;
+// 플레이어 방향으로 이동하는 적 스크립트 
 public class HomingEnemy : Enemy
 {
     private Transform _targetPlayer;

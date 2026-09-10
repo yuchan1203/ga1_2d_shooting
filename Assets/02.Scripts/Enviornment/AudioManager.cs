@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+// 배경음악과 효과음을 재생하는 매니저 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }

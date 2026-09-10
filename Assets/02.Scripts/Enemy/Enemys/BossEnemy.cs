@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+// 보스 적 스크립트 
 public class BossEnemy : Enemy
 {
     private Transform _targetPlayer;
@@ -7,7 +7,6 @@ public class BossEnemy : Enemy
     {
         _targetPlayer = targetPlayer;
     }
-
     private void Start()
     {
         if (AudioManager.Instance.EnemyHitSound != null)
@@ -15,7 +14,6 @@ public class BossEnemy : Enemy
             AudioManager.Instance.PlayBossSummonSound();
         }
     }
-
     protected override void Move()
     {
         if (_targetPlayer == null) return;

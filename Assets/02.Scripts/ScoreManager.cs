@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using TMPro;
+// 점수와 최고점수 관리 매니저 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
@@ -9,12 +9,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int _scorePerKill = 100;
     private int _bestScore = 0;
     private int _currentScore = 0;
-
     private void Awake()
     {
         Instance = this;
     }
-
     public void AddScore(int score)
     {
         _currentScore += score;
