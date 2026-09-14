@@ -32,23 +32,21 @@ public class ItemGet : MonoBehaviour
                 }
             case ItemType.BulletDamageUp:
                 {
-                    //PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
-                    //if (playerAttack == null) return;
-                    //playerAttack.ChangeCoolDown(Value);
+                    PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
+                    if (playerAttack == null) return;
+                    playerAttack.AddBulletDamage(Value);
                     break;
                 }
             case ItemType.GetBomb:
                 {
                     PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
                     if (playerAttack == null) return;
-                    playerAttack.GetBomb((int)Value);
+                    playerAttack.GetBomb((int)Value > 0 ? (int)Value : 1);
                     break;
                 }
             case ItemType.GetCoin:
                 {
-                    //PlayerAttack playerAttack = other.GetComponentInParent<PlayerAttack>();
-                    //if (playerAttack == null) return;
-                    //playerAttack.ChangeCoolDown(Value);
+                    player.AddCoin((int)Value > 0 ? (int)Value : 1);
                     break;
                 }
         }

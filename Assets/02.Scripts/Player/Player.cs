@@ -38,4 +38,23 @@ public class Player : MonoBehaviour
             Health = _maxHealth;
         }
     }
+
+    public int Coin { get; private set; } = 0;
+
+    public void AddCoin(int amount = 1)
+    {
+        if (amount <= 0) return;
+        Coin += amount;
+    }
+
+    public bool UseCoin(int amount = 1)
+    {
+        if (amount <= 0) return false;
+        if (Coin >= amount)
+        {
+            Coin -= amount;
+            return true;
+        }
+        return false;
+    }
 }

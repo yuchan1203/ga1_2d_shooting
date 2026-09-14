@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject[] _bulletPrefabs;
-    [SerializeField] private Transform[] _firePoints;
-    [SerializeField] private GameObject _bombPrefab;
+    //[SerializeField] private Transform[] _firePoints;
+    //[SerializeField] private GameObject _bombPrefab;
     public Transform LeftFirePoint;
     public Transform RightFirePoint;
     public Transform SubLeftFirePoint;
@@ -13,8 +13,14 @@ public class PlayerAttack : MonoBehaviour
     private float _coolDown = 0;
     private bool _isAutoMode = false;
     private int _bomb = 0;
-    public bool AutoFireMode => _isAutoMode;
+    public int Bomb => _bomb;
 
+    [SerializeField] private float _bulletDamageUP = 0f;
+    public float BulletDamageUP => _bulletDamageUP;
+
+    public float CoolDownTime => _coolDownTime;
+
+    public bool AutoFireMode => _isAutoMode;
     public void SetAuto(bool auto)
     {
         _isAutoMode = auto;
@@ -23,6 +29,11 @@ public class PlayerAttack : MonoBehaviour
     public void GetBomb(int var)
     {
         _bomb += var;
+    }
+
+    public void AddBulletDamage(float value)
+    {
+        _bulletDamageUP += value;
     }
 
     private void CoolDownTimer()
@@ -36,7 +47,6 @@ public class PlayerAttack : MonoBehaviour
         {
             return;
         }
-
         SpawnBullet(BulletType.Main, LeftFirePoint);
         SpawnBullet(BulletType.Main, RightFirePoint);
         SpawnBullet(BulletType.Sub, SubLeftFirePoint);
@@ -61,11 +71,18 @@ public class PlayerAttack : MonoBehaviour
         {
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
+            bullet.SetBonusDamage(_bulletDamageUP);
         }
     }
     private void UseBomb()
     {
-        Instantiate(_bombPrefab, _firePoints[0].position, _firePoints[0].rotation);
+        if (_bomb <= 0) return;
+        Transform firePoint = LeftFirePoint != null ? LeftFirePoint : transform;
+        if (_bulletPrefabs != null && _bulletPrefabs.Length > 0 && _bulletPrefabs[0] != null)
+        {
+            Instantiate(_bulletPrefabs[0], firePoint.position, firePoint.rotation);
+        }
+        _bomb--;
     }
     private void PlayerAttacking()
     {
@@ -101,9 +118,9 @@ public class PlayerAttack : MonoBehaviour
     public void CoolDownUpgrade(float var)
     {
         _coolDownTime -= var;
-        if (_coolDownTime < 0)
+        if (_coolDownTime < 0.05f)
         {
-            _coolDownTime = 0;
+            _coolDownTime = 0.05f;
         }
     }
     public void CoolDownDowngrade(float var)

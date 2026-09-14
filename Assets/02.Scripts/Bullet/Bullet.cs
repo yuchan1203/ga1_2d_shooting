@@ -8,6 +8,14 @@ public class Bullet : MonoBehaviour
     [SerializeField] private BulletType _type;
     public BulletType Type => _type;
 
+    private float _bonusDamage = 0f;
+    public int Damage => Mathf.RoundToInt(_bulletDamage + _bonusDamage);
+
+    public void SetBonusDamage(float bonusDamage)
+    {
+        _bonusDamage = bonusDamage;
+    }
+
     public void OnSpawn()
     {
         CancelInvoke(nameof(Deactivate));
@@ -40,7 +48,7 @@ public class Bullet : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(_bulletDamage);
+                enemy.TakeDamage(Damage);
             }
 
             Deactivate();

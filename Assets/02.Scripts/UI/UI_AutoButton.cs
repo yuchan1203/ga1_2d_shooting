@@ -12,6 +12,7 @@ public class UI_AutoButton : MonoBehaviour
     {
         myImage = GetComponent<Image>();
         player = GameObject.FindAnyObjectByType<Player>();
+        AutoToggle();
     }
     public void AutoToggle()
     {
