@@ -1,5 +1,4 @@
 using UnityEngine;
-
 // 적 스크립트
 public abstract class Enemy : MonoBehaviour
 {

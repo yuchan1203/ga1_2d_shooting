@@ -5,7 +5,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _destroyTime;
     [SerializeField] private int _bulletDamage;
     [SerializeField] private GameObject _bulletEffectPrefab;
-    private void Start()
+    [SerializeField] private BulletType _type;
+    public BulletType Type => _type;
+    public void OnSpawn()
     {
         Destroy(gameObject, _destroyTime);
     }

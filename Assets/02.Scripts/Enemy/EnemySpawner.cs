@@ -2,7 +2,7 @@ using UnityEngine;
 // 규칙에 따라 적을 스폰하는 스크립트 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemySpawnTableSO _spawnTable;
+    [SerializeField] private GetRandomEnemy _spawnTable;
     [SerializeField] private float _respawnTime = 5.0f;
     [SerializeField] private float _maxPositionX = 2.0f;
     [SerializeField] private Transform _playerTransform;
