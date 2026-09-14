@@ -1891,6 +1891,54 @@ RectTransform:
   m_AnchoredPosition: {x: -10, y: -110}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 1, y: 1}
+--- !u!1 &1187984802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187984804}
+  - component: {fileID: 1187984803}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187984803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187984802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d151ec0b7456345999b83522b8187b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletPool
+  _bulletPrefabs:
+  - {fileID: -898805165420510010, guid: 7a757895f0b5481448c77eb766dfaeee, type: 3}
+  - {fileID: 5687706203708153396, guid: ae7b8f2bd55b56d449493a315ec09abd, type: 3}
+  _poolSize: 30
+--- !u!4 &1187984804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187984802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.84888, y: -0.8429, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1501469115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,7 +2203,6 @@ MonoBehaviour:
   RightFirePoint: {fileID: 894975987}
   SubLeftFirePoint: {fileID: 365923609}
   SubRightFirePoint: {fileID: 167838020}
-  _autoFireMode: 0
 --- !u!60 &1571312726
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2318,9 +2365,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -24.910034, y: 635.1}
+  m_AnchoredPosition: {x: -124.910034, y: 735.1}
   m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1679984979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2368,6 +2415,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1679984982}
         m_TargetAssemblyTypeName: UI_AutoButton, Assembly-CSharp
         m_MethodName: AutoToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1679984982}
+        m_TargetAssemblyTypeName: UI_AutoButton, Assembly-CSharp
+        m_MethodName: PlayAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2429,6 +2488,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI_AutoButton
   _onSprite: {fileID: 2585730359333395145, guid: 57873bd10ef4f594dbdede6d96dab402, type: 3}
   _offSprite: {fileID: -1196866263293263332, guid: 3c4cd7807f66674448dc054064650d32, type: 3}
+  _bumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7104515
+      value: -0.028888106
+      inSlope: 1.1082637
+      outSlope: 1.1082637
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1839470031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,3 +3082,4 @@ SceneRoots:
   - {fileID: 1957487900}
   - {fileID: 899059736}
   - {fileID: 285148396}
+  - {fileID: 1187984804}

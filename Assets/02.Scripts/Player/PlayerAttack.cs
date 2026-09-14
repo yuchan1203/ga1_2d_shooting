@@ -13,31 +13,55 @@ public class PlayerAttack : MonoBehaviour
     private float _coolDown = 0;
     private bool _isAutoMode = false;
     private int _bomb = 0;
-    public bool AutoFireMode = false;
+    public bool AutoFireMode => _isAutoMode;
+
     public void SetAuto(bool auto)
     {
-        AutoFireMode = auto;
+        _isAutoMode = auto;
     }
+
     public void GetBomb(int var)
     {
         _bomb += var;
     }
+
     private void CoolDownTimer()
     {
         if (_coolDown > 0) _coolDown -= Time.deltaTime;
     }
+
     private void Fire()
     {
-        Bullet leftBullet = BulletPool.Instance.GetBullet(BulletType.Main);
-        leftBullet.transform.position = LeftFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
-        Bullet rightBullet = BulletPool.Instance.GetBullet(BulletType.Main);
-        rightBullet.transform.position = RightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
-        Bullet subLeftBullet = BulletPool.Instance.GetBullet(BulletType.Sub);
-        subLeftBullet.transform.position = SubLeftFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
-        Bullet subRightBullet = BulletPool.Instance.GetBullet(BulletType.Sub);
-        subRightBullet.transform.position = SubRightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
-        AudioManager.Instance.PlayPlayerShootSound();
+        if (BulletPool.Instance == null)
+        {
+            return;
+        }
+
+        SpawnBullet(BulletType.Main, LeftFirePoint);
+        SpawnBullet(BulletType.Main, RightFirePoint);
+        SpawnBullet(BulletType.Sub, SubLeftFirePoint);
+        SpawnBullet(BulletType.Sub, SubRightFirePoint);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayPlayerShootSound();
+        }
         _coolDown = _coolDownTime;
+    }
+
+    private void SpawnBullet(BulletType type, Transform firePoint)
+    {
+        if (firePoint == null)
+        {
+            return;
+        }
+
+        Bullet bullet = BulletPool.Instance.GetBullet(type);
+        if (bullet != null)
+        {
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = firePoint.rotation;
+        }
     }
     private void UseBomb()
     {
