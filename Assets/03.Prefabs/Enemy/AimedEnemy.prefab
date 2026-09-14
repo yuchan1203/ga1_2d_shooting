@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1435559248752617548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 4.29, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de377d95c896a7479c64ba08a5a9a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimedEnemy
-  _moveSpeed: 2
-  _damage: 25
+  MoveSpeed: 1
+  Damage: 10
 --- !u!114 &-7711099699152776883
 MonoBehaviour:
   m_ObjectHideFlags: 0
