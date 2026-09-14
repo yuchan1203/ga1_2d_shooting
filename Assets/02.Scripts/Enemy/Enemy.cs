@@ -2,8 +2,8 @@ using UnityEngine;
 // 적 스크립트
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] protected float _moveSpeed = 1f;
-    [SerializeField] protected int _damage = 10;
+    [SerializeField] protected float MoveSpeed = 1f;
+    [SerializeField] protected int Damage = 10;
 
     private HealthComponent _health;
     private EnemyVFX _vfx;
@@ -26,7 +26,7 @@ public abstract class Enemy : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         Player player = other.GetComponentInParent<Player>();
-        if (player != null) player.TakeDamage(_damage);
+        if (player != null) player.TakeDamage(Damage);
 
         if (_vfx != null) _vfx.AttackEffect();
 

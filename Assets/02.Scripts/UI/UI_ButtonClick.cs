@@ -7,7 +7,7 @@ public class UI_ButtonClick : MonoBehaviour
     private Button _button;
     private bool _isBumping = false;
     private float _elapsedTime = 0;
-    private float _bumpDuration = 0.3f;
+    private float _bumpDuration = 0.1f;
     private float _bumpScale = 1.1f;
     private void Start()
     {

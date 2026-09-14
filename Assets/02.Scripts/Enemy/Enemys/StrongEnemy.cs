@@ -17,6 +17,6 @@ public class StrongEnemy : Enemy
     }
     protected override void Move()
     {
-        transform.Translate(_direction * (_moveSpeed * Time.deltaTime), Space.World);
+        transform.Translate(_direction * (MoveSpeed * Time.deltaTime), Space.World);
     }
 }

@@ -2342,6 +2342,7 @@ GameObject:
   - component: {fileID: 1679984980}
   - component: {fileID: 1679984979}
   - component: {fileID: 1679984982}
+  - component: {fileID: 1679984983}
   m_Layer: 5
   m_Name: UI_AutoButton
   m_TagString: Untagged
@@ -2424,8 +2425,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1679984982}
-        m_TargetAssemblyTypeName: UI_AutoButton, Assembly-CSharp
+      - m_Target: {fileID: 1679984983}
+        m_TargetAssemblyTypeName: UI_ButtonClick, Assembly-CSharp
         m_MethodName: PlayAnimation
         m_Mode: 1
         m_Arguments:
@@ -2488,6 +2489,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI_AutoButton
   _onSprite: {fileID: 2585730359333395145, guid: 57873bd10ef4f594dbdede6d96dab402, type: 3}
   _offSprite: {fileID: -1196866263293263332, guid: 3c4cd7807f66674448dc054064650d32, type: 3}
+--- !u!114 &1679984983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679984977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608e8dc418c75b64f90c1a784f65b286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_ButtonClick
   _bumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -2500,15 +2513,6 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
-    - serializedVersion: 3
-      time: 0.7104515
-      value: -0.028888106
-      inSlope: 1.1082637
-      outSlope: 1.1082637
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1

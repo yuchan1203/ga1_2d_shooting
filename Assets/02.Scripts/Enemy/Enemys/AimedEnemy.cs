@@ -6,7 +6,7 @@ public class AimedEnemy : Enemy
     private Transform _targetPlayer;
     public override void Init(Transform targetPlayer)
     {
-        _targetPlayer = targetPlayer;
+        this._targetPlayer = targetPlayer;
     }
     private void Start()
     {
@@ -17,6 +17,6 @@ public class AimedEnemy : Enemy
     }
     protected override void Move()
     {
-        transform.Translate(_direction * (_moveSpeed * Time.deltaTime));
+        transform.Translate(_direction * (MoveSpeed * Time.deltaTime));
     }
 }
