@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-// 점수와 최고점수 관리 매니저 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
@@ -11,6 +10,11 @@ public class ScoreManager : MonoBehaviour
     private int _currentScore = 0;
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
     public void AddScore(int score)
@@ -20,14 +24,11 @@ public class ScoreManager : MonoBehaviour
         {
             _bestScore = _currentScore;
         }
+        UpdateUI();
     }
     public void AddKillScore()
     {
         _currentScore += _scorePerKill;
-        UpdateUI();
-    }
-    private void Update()
-    {
         UpdateUI();
     }
     private void UpdateUI()

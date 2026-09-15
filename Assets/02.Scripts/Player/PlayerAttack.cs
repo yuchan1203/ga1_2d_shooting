@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Fire();
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (SimpleInput.GetButton("Attack") || Input.GetKeyDown(KeyCode.Space))
             {
                 Fire();
             }

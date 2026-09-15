@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-// 버튼을 클릭하면 플레이어의 자동 이동과 공격을 토글하는 스크립트 
 public class UI_AutoButton : MonoBehaviour
 {
     [SerializeField] private Sprite _onSprite;
@@ -8,19 +7,34 @@ public class UI_AutoButton : MonoBehaviour
     private bool _autoMode = false;
     private Player _player;
     private Image _myImage;
+    private PlayerAttack _playerAttack;
+    private PlayerMove _playerMove;
+    private PlayerAutoMove _playerAutoMove;
     private void Start()
     {
         _myImage = GetComponent<Image>();
-        _player = GameObject.FindAnyObjectByType<Player>();
-        AutoToggle();
+        _player = FindFirstObjectByType<Player>();
+        if (_player != null)
+        {
+            _playerAttack = _player.GetComponent<PlayerAttack>();
+            _playerMove = _player.GetComponent<PlayerMove>();
+            _playerAutoMove = _player.GetComponent<PlayerAutoMove>();
+        }
+        _autoMode = false;
+        ApplyAutoMode();
     }
     public void AutoToggle()
     {
         _autoMode = !_autoMode;
-        _player.GetComponent<PlayerAttack>().SetAuto(_autoMode);
-        _player.GetComponent<PlayerMove>().enabled = !_autoMode;
-        _player.GetComponent<PlayerAutoMove>().enabled = _autoMode;
-        _myImage.sprite = _autoMode ? _onSprite : _offSprite;
+        ApplyAutoMode();
         AudioManager.Instance.PlayUIButtonClicked();
+    }
+    private void ApplyAutoMode()
+    {
+        if (_playerAttack != null) _playerAttack.SetAuto(_autoMode);
+        if (_playerMove != null) _playerMove.enabled = !_autoMode;
+        if (_playerAutoMove != null) _playerAutoMove.enabled = _autoMode;
+        if (_myImage != null) _myImage.sprite = _autoMode ? _onSprite : _offSprite;
+        AudioManager.Instance?.PlayUIButtonClicked();
     }
 }

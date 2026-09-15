@@ -13,8 +13,16 @@ public class Bomb : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Instantiate(_bombEffectPrefab, transform.position, Quaternion.identity);
-            other.gameObject.GetComponent<Enemy>().TakeDamage(_bombDamage);
+            if (_bombEffectPrefab != null)
+            {
+                Instantiate(_bombEffectPrefab, transform.position, Quaternion.identity);
+            }
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(_bombDamage);
+            }
+            gameObject.SetActive(false);
         }
     }
 }

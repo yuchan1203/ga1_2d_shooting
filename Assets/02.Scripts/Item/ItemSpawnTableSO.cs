@@ -3,21 +3,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemSpawnTable", menuName = "Scriptable Objects/Item Spawn Table")]
 public class ItemSpawnTableSO : ScriptableObject
 {
-    public ItemSpawnData[] SpawnList;
+    [SerializeField] private ItemSpawnData[] _spawnList;
+    public ItemSpawnData[] SpawnList => _spawnList;
     public GameObject GetRandomItemPrefab()
     {
-        if (SpawnList == null || SpawnList.Length == 0)
+        if (_spawnList == null || _spawnList.Length == 0)
         {
             return null;
         }
         float totalWeight = 0f;
-        foreach (var item in SpawnList)
+        foreach (var item in _spawnList)
         {
             totalWeight += item.SpawnWeight;
         }
         float randomValue = UnityEngine.Random.Range(0f, totalWeight);
         float currentSum = 0f;
-        foreach (var item in SpawnList)
+        foreach (var item in _spawnList)
         {
             currentSum += item.SpawnWeight;
             if (randomValue <= currentSum)
@@ -25,6 +26,6 @@ public class ItemSpawnTableSO : ScriptableObject
                 return item.Prefab;
             }
         }
-        return SpawnList[0].Prefab;
+        return _spawnList[0].Prefab;
     }
 }

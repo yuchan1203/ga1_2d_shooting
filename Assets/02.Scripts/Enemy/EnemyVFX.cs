@@ -54,10 +54,7 @@ public class EnemyVFX : MonoBehaviour
     {
         UpdateFireEffect();
         if (_animator != null) _animator.SetTrigger("Hit");
-        if (AudioManager.Instance.EnemyHitSound != null)
-        {
-            AudioManager.Instance.PlayEnemyHitSound();
-        }
+        AudioManager.Instance?.PlayEnemyHitSound();
     }
 
     public void AttackEffect()
@@ -74,10 +71,7 @@ public class EnemyVFX : MonoBehaviour
         {
             Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
         }
-        if (AudioManager.Instance.EnemyDeadSound != null)
-        {
-            AudioManager.Instance.PlayEnemyDeadSound();
-        }
+        AudioManager.Instance?.PlayEnemyDeadSound();
     }
 
     private void UpdateFireEffect()

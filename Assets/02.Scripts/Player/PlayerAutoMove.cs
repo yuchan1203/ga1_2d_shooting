@@ -3,14 +3,17 @@ public class PlayerAutoMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private GameObject _target = null;
+    private static GameObject[] _cachedEnemies;
     private void FindTarget()
     {
         if (_target != null) return;
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
-        if (targets.Length == 0) return;
-        _target = targets[0];
+        if (_cachedEnemies == null || _cachedEnemies.Length == 0)
+        {
+            _cachedEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        }
+        if (_cachedEnemies.Length == 0) return;
         float minDistance = float.MaxValue;
-        foreach (GameObject enemy in targets)
+        foreach (GameObject enemy in _cachedEnemies)
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
             if (distance < minDistance)
@@ -36,7 +39,6 @@ public class PlayerAutoMove : MonoBehaviour
         {
             direction.y = -1;
         }
-        //diff.y = 0;
         direction.Normalize();
         transform.position += direction * (_speed * Time.deltaTime);
     }

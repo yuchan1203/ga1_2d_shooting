@@ -26,13 +26,11 @@ public class EnemyDropHandler : MonoBehaviour
     private void HandleDeath()
     {
         ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
-        if (scoreManager != null) scoreManager.AddScore(100);
-
+        if (scoreManager != null) scoreManager.AddKillScore();
         if (ItemSpawner.Instance != null && Random.value <= (_chanceOfItem / 100f))
         {
             ItemSpawner.Instance.SpawnItem(transform.position);
         }
-
         Destroy(gameObject);
     }
 }

@@ -7,7 +7,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private UI_UpgradeButton[] _uiUpgradeButtons;
     private void Awake()
     {
-        if (_instance == null)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
             return;
@@ -20,8 +20,12 @@ public class UpgradeManager : MonoBehaviour
     }
     public void LevelUp(int index)
     {
+        if (_uiUpgradeButtons == null || index < 0 || index >= _uiUpgradeButtons.Length)
+        {
+            Debug.LogWarning("[UpgradeManager] 유효하지 않은 인덱스입니다.");
+            return;
+        }
         _uiUpgradeButtons[index].OnClickUpgrade();
-
         RefreshUI();
     }
     // UI 갱신

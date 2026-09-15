@@ -1,5 +1,4 @@
 using UnityEngine;
-// 아이템의 이동 스크립트 
 public class ItemMove : MonoBehaviour
 {
     private Player _player;
@@ -15,6 +14,7 @@ public class ItemMove : MonoBehaviour
     }
     private void ItemMoveToPlayer()
     {
+        if (_player == null) return;
         Vector2 direction = (_player.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90f);

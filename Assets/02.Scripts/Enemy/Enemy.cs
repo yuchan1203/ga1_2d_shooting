@@ -18,6 +18,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(int bulletDamage)
     {
+        if (_health == null) return;
         _health.TakeDamage(bulletDamage);
     }
 

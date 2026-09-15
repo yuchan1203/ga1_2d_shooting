@@ -9,10 +9,7 @@ public class BossEnemy : Enemy
     }
     private void Start()
     {
-        if (AudioManager.Instance.EnemyHitSound != null)
-        {
-            AudioManager.Instance.PlayBossSummonSound();
-        }
+        AudioManager.Instance?.PlayBossSummonSound();
     }
     protected override void Move()
     {

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-// 하단 업그레이드 버튼 스크립트: 1코인을 차감하여 스탯을 강화하고 텍스트를 갱신
 public class UI_UpgradeButton : MonoBehaviour
 {
     [Header("업그레이드 설정")]
@@ -25,7 +24,8 @@ public class UI_UpgradeButton : MonoBehaviour
         {
             _button.onClick.AddListener(OnClickUpgrade);
         }
-        // 인스펙터 미할당 시 자식 오브젝트 자동 탐색
+        _uiButtonClickSuccess = GetComponent<UI_ButtonClickSuccess>();
+        _uiButtonClickFail = GetComponent<UI_ButtonClickFail>();
         if (_titleText == null)
         {
             _titleText = transform.Find("TitleText")?.GetComponent<TextMeshProUGUI>();
@@ -37,6 +37,13 @@ public class UI_UpgradeButton : MonoBehaviour
         if (_scoreCostText == null)
         {
             _scoreCostText = transform.Find("ScoreCostText")?.GetComponent<TextMeshProUGUI>();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (_button != null)
+        {
+            _button.onClick.RemoveListener(OnClickUpgrade);
         }
     }
     private void Start()
@@ -64,137 +71,78 @@ public class UI_UpgradeButton : MonoBehaviour
     }
     public void OnClickUpgrade()
     {
-        AudioManager.Instance.PlayUIButtonClicked();
         InitPlayerReferences();
+        AudioManager.Instance?.PlayUIButtonClicked();
         if (_player == null)
         {
             Debug.LogWarning("[UI_UpgradeButton] Player를 찾을 수 없습니다.");
-            _uiButtonClickFail = GetComponent<UI_ButtonClickFail>();
-            _uiButtonClickFail.PlayFailAnimation();
+            _uiButtonClickFail?.PlayFailAnimation();
             return;
         }
-        // 1코인 차감 시도
         if (!_player.UseCoin(_coinCost))
         {
             Debug.Log("[UI_UpgradeButton] 코인이 부족합니다.");
-            _uiButtonClickFail = GetComponent<UI_ButtonClickFail>();
-            _uiButtonClickFail.PlayFailAnimation();
+            _uiButtonClickFail?.PlayFailAnimation();
             return;
         }
-        _uiButtonClickSuccess = GetComponent<UI_ButtonClickSuccess>();
-        _uiButtonClickSuccess.PlaySuccessAnimation();
-        // 타입에 따른 스탯 증가
+        _uiButtonClickSuccess?.PlaySuccessAnimation();
         switch (_upgradeType)
         {
             case UpgradeType.AttackDamage:
-                {
-                    if (_playerAttack != null)
-                    {
-                        _playerAttack.AddBulletDamage(0.5f);
-                    }
-
-                    break;
-                }
+                if (_playerAttack != null) _playerAttack.AddBulletDamage(0.5f);
+                break;
             case UpgradeType.AttackSpeed:
-                {
-                    if (_playerAttack != null)
-                    {
-                        _playerAttack.CoolDownUpgrade(0.01f);
-                    }
-
-                    break;
-                }
+                if (_playerAttack != null) _playerAttack.CoolDownUpgrade(0.01f);
+                break;
             case UpgradeType.MoveSpeed:
-                {
-                    if (_playerSpeedControl != null)
-                    {
-                        _playerSpeedControl.SpeedUp(0.5f);
-                    }
-                    break;
-                }
+                if (_playerSpeedControl != null) _playerSpeedControl.SpeedUp(0.5f);
+                break;
             case UpgradeType.All:
+                if (_playerAttack != null)
                 {
-                    if (_playerAttack != null)
-                    {
-                        _playerAttack.AddBulletDamage(0.5f);
-                        _playerAttack.CoolDownUpgrade(0.05f);
-                    }
-                    if (_playerSpeedControl != null)
-                    {
-                        _playerSpeedControl.SpeedUp(0.5f);
-                    }
-                    break;
+                    _playerAttack.AddBulletDamage(0.5f);
+                    _playerAttack.CoolDownUpgrade(0.05f);
                 }
+                if (_playerSpeedControl != null) _playerSpeedControl.SpeedUp(0.5f);
+                break;
         }
         _level++;
-
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlayUIButtonClicked();
-        }
         UpdateUI();
     }
     public void UpdateUI()
     {
         InitPlayerReferences();
-        // 1. TitleText 갱신
         if (_titleText != null)
         {
             switch (_upgradeType)
             {
-                case UpgradeType.AttackDamage:
-                    {
-                        _titleText.text = $"공격력 LV.{_level}";
-                        break;
-                    }
-                case UpgradeType.AttackSpeed:
-                    {
-                        _titleText.text = $"공격속도 LV.{_level}";
-                        break;
-                    }
-                case UpgradeType.MoveSpeed:
-                    {
-                        _titleText.text = $"이동속도 LV.{_level}";
-                        break;
-                    }
-                case UpgradeType.All:
-                    {
-                        _titleText.text = $"전체 강화 LV.{_level}";
-                        break;
-                    }
+                case UpgradeType.AttackDamage: _titleText.text = $"공격력 LV.{_level}"; break;
+                case UpgradeType.AttackSpeed: _titleText.text = $"공격속도 LV.{_level}"; break;
+                case UpgradeType.MoveSpeed: _titleText.text = $"이동속도 LV.{_level}"; break;
+                case UpgradeType.All: _titleText.text = $"전체 강화 LV.{_level}"; break;
             }
         }
-        // 2. ValueText 갱신
         if (_valueText != null)
         {
             switch (_upgradeType)
             {
                 case UpgradeType.AttackDamage:
-                    {
-                        float currentDamageBonus = _playerAttack != null ? _playerAttack.BulletDamageUP : 0f;
-                        _valueText.text = $"+0.5 (현재: {currentDamageBonus:F1})";
-                        break;
-                    }
+                    float currentDamageBonus = _playerAttack != null ? _playerAttack.BulletDamageUP : 0f;
+                    _valueText.text = $"+0.5 (현재: {currentDamageBonus:F1})";
+                    break;
                 case UpgradeType.AttackSpeed:
-                    {
-                        float currentCoolDown = _playerAttack != null ? _playerAttack.CoolDownTime : 0.5f;
-                        _valueText.text = $"+0.01 (현재: {currentCoolDown:F2}s)";
-                        break;
-                    }
+                    float currentCoolDown = _playerAttack != null ? _playerAttack.CoolDownTime : 0.5f;
+                    _valueText.text = $"+0.01 (현재: {currentCoolDown:F2}s)";
+                    break;
                 case UpgradeType.MoveSpeed:
-                    {
-                        float currentSpeed = _playerSpeedControl != null ? _playerSpeedControl.PlayerSpeed : 5f;
-                        _valueText.text = $"+0.5 (현재: {currentSpeed:F1})";
-                        break;
-                    }
+                    float currentSpeed = _playerSpeedControl != null ? _playerSpeedControl.PlayerSpeed : 5f;
+                    _valueText.text = $"+0.5 (현재: {currentSpeed:F1})";
+                    break;
                 case UpgradeType.All:
-                    {
-                        _valueText.text = "+0.5 / +0.05 / +0.5";
-                        break;
-                    }
+                    _valueText.text = "+0.5 / +0.05 / +0.5";
+                    break;
             }
         }
-        // 3. ScoreCostText 갱신
         if (_scoreCostText != null)
         {
             _scoreCostText.text = $"{_coinCost} 코인";

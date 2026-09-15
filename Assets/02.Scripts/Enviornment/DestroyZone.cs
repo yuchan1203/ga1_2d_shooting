@@ -4,6 +4,11 @@ public class DestroyZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.TryGetComponent<Bullet>(out var bullet))
+        {
+            bullet.Deactivate();
+            return;
+        }
         Destroy(other.gameObject);
     }
 }

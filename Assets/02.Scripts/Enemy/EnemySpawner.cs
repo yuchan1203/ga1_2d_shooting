@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Spawn()
     {
+        if (_spawnTable == null || _playerTransform == null) return;
         GameObject selectedPrefab = _spawnTable.GetRandomEnemyPrefab();
         if (selectedPrefab != null)
         {

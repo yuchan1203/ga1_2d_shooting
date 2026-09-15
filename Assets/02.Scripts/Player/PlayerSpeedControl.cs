@@ -11,20 +11,19 @@ public class PlayerSpeedControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SpeedUp(1);
+            SpeedUp(1f);
         }
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SpeedDown(1);
+            SpeedDown(1f);
         }
     }
     public void SpeedUp(float value)
     {
-        PlayerSpeed += value;
+        PlayerSpeed = Mathf.Max(PlayerSpeed + value, 0f);
     }
     public void SpeedDown(float value)
     {
-        PlayerSpeed -= value;
+        PlayerSpeed = Mathf.Max(PlayerSpeed - value, 0f);
     }
 }

@@ -7,10 +7,7 @@ public class PlayerBoundary : MonoBehaviour
     [SerializeField] private float _minPositionY;
     private void Start()
     {
-        var pos = transform.position;
-        pos.x = 0;
-        pos.y = -4;
-        transform.position = pos;
+        transform.position = new Vector3(0f, -4f, 0f);
     }
     private void Update()
     {

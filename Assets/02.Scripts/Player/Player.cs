@@ -1,10 +1,9 @@
 using UnityEngine;
-// 플레이어 스크립트 
 public class Player : MonoBehaviour
 {
     public int Health { get; private set; } = 50;
     [SerializeField] private GameObject _playerDeathPrefab;
-    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private int _maxHealth = 50;
     public void TakeDamage(int damage)
     {
         Health -= damage;
@@ -13,16 +12,16 @@ public class Player : MonoBehaviour
             Health = 0;
             PlayerDeath();
         }
-        else if (AudioManager.Instance.PlayerHitSound != null)
+        else if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlayPlayerHitSound();
+            AudioManager.Instance?.PlayPlayerHitSound();
         }
     }
     public void PlayerDeath()
     {
-        if (AudioManager.Instance.PlayerDeadSound != null)
+        if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlayPlayerDeadSound();
+            AudioManager.Instance?.PlayPlayerDeadSound();
         }
         if (_playerDeathPrefab != null)
         {
@@ -38,15 +37,12 @@ public class Player : MonoBehaviour
             Health = _maxHealth;
         }
     }
-
     public int Coin { get; private set; } = 0;
-
     public void AddCoin(int amount = 1)
     {
         if (amount <= 0) return;
         Coin += amount;
     }
-
     public bool UseCoin(int amount = 1)
     {
         if (amount <= 0) return false;

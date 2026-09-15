@@ -12,12 +12,11 @@ public class ScoreUI : MonoBehaviour
     private PlayerAttack _playerAttack;
     private void Awake()
     {
-        if (_instance == null)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
         _instance = this;
     }
     private void Start()
@@ -29,35 +28,24 @@ public class ScoreUI : MonoBehaviour
         }
         UpdateUI();
     }
-
     private void Update()
     {
         _playTime += Time.deltaTime;
+        UpdateUI();
     }
-
     private void UpdateUI()
     {
         if (_timeText != null)
         {
             _timeText.text = $"시간: {(int)_playTime}s";
         }
-
         if (_bombText != null)
         {
-            if (_playerAttack == null && _player != null)
-            {
-                _playerAttack = _player.GetComponent<PlayerAttack>();
-            }
             int bombCount = _playerAttack != null ? _playerAttack.Bomb : 0;
             _bombText.text = $"폭탄: {bombCount}개";
         }
-
         if (_coinText != null)
         {
-            if (_player == null)
-            {
-                _player = FindFirstObjectByType<Player>();
-            }
             int coinCount = _player != null ? _player.Coin : 0;
             _coinText.text = $"코인: {coinCount}개";
         }

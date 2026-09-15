@@ -7,19 +7,18 @@ public class ItemSpawner : MonoBehaviour
     //private float _randomX;
     //private int _randomItem;
     private Vector2 _vector2;
-    private void Start()
+    private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
     public void SpawnItem(Vector2 position)
     {
+        if (_spawnTable == null) return;
         GameObject selectedPrefab = _spawnTable.GetRandomItemPrefab();
         if (selectedPrefab == null) return;
         Instantiate(selectedPrefab, position, Quaternion.identity);

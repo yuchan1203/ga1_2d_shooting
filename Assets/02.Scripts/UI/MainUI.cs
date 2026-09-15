@@ -15,6 +15,14 @@ public class MainUI : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (_gameStartButton != null)
+        {
+            _gameStartButton.onClick.RemoveListener(OnGameStartButtonClicked);
+        }
+    }
+
     public void OnGameStartButtonClicked()
     {
         SceneManager.LoadScene(_gameSceneName);

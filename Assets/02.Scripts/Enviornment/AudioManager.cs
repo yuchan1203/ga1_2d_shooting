@@ -8,22 +8,32 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
     [Header("BGM")]
-    public AudioClip DefaultBgmSound;
+    [SerializeField] private AudioClip DefaultBgmSound;
     [Header("SFX")]
-    public AudioClip EnemyDeadSound;
-    public AudioClip PlayerDeadSound;
-    public AudioClip GetItemSound;
-    public AudioClip PlayerShootSound;
-    public AudioClip EnemyHitSound;
-    public AudioClip PlayerHitSound;
-    public AudioClip BossSummonSound;
-    public AudioClip GameStartSound;
-    public AudioClip UIButtonClicked;
-    public AudioClip GameClearSound;
+    [SerializeField] private AudioClip EnemyDeadSound;
+    [SerializeField] private AudioClip PlayerDeadSound;
+    [SerializeField] private AudioClip GetItemSound;
+    [SerializeField] private AudioClip PlayerShootSound;
+    [SerializeField] private AudioClip EnemyHitSound;
+    [SerializeField] private AudioClip PlayerHitSound;
+    [SerializeField] private AudioClip BossSummonSound;
+    [SerializeField] private AudioClip GameStartSound;
+    [SerializeField] private AudioClip UIButtonClicked;
+    [SerializeField] private AudioClip GameClearSound;
+    public static bool TryPlaySFX(AudioClip clip)
+    {
+        if (Instance == null || clip == null || Instance._sfxSource == null) return false;
+        Instance._sfxSource.PlayOneShot(clip);
+        return true;
+    }
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
     private void OnEnable()
     {

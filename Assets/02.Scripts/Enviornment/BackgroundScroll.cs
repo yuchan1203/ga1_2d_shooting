@@ -7,7 +7,9 @@ public class BackgroundScroll : MonoBehaviour
     private float _offsetY = 0f;
     private void Awake()
     {
-        _material = GetComponent<Renderer>().material;
+        var renderer = GetComponent<Renderer>();
+        if (renderer == null) return;
+        _material = renderer.material;
     }
     private void Update()
     {
