@@ -19,8 +19,8 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        var h = Input.GetAxisRaw("Horizontal");
-        var v = Input.GetAxisRaw("Vertical");
+        var h = SimpleInput.GetAxisRaw("Horizontal");
+        var v = SimpleInput.GetAxisRaw("Vertical");
         if (v < 0)
         {
             _trailRenderer.emitting = false;
