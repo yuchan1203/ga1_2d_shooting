@@ -3,18 +3,16 @@ public class PlayerAutoMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private GameObject _target = null;
-    private static GameObject[] _cachedEnemies;
     private void FindTarget()
     {
-        if (_target != null) return;
-        if (_cachedEnemies == null || _cachedEnemies.Length == 0)
-        {
-            _cachedEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        }
-        if (_cachedEnemies.Length == 0) return;
+        if (_target != null && _target.activeSelf) return;
+        _target = null;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length == 0) return;
         float minDistance = float.MaxValue;
-        foreach (GameObject enemy in _cachedEnemies)
+        foreach (GameObject enemy in enemies)
         {
+            if (enemy == null || !enemy.activeSelf) continue;
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
             if (distance < minDistance)
             {
@@ -25,10 +23,7 @@ public class PlayerAutoMove : MonoBehaviour
     }
     private void Move()
     {
-        if (_target == null)
-        {
-            return;
-        }
+        if (_target == null || !_target.activeSelf) return;
         Vector3 diff = _target.transform.position - transform.position;
         Vector3 direction = diff.normalized;
         if (diff.y >= 3)
